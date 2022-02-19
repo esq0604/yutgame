@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Util.cpp" />
     <ClCompile Include="yutgame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

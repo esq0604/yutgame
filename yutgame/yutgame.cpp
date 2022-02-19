@@ -1,69 +1,22 @@
-#include<iostream>
-#include<vector>
 #include<windows.h>
+#include "Map.h"
+#include "MainMenu.h"
+#include "Util.h"
 using namespace std;
-#define MAP_SIZE 21
 
-int MAP[MAP_SIZE][MAP_SIZE];
-class MainMenu {
-public:
-    MainMenu()
-    {
-        cout << "\n\n\n\n";
-        cout << "\t\t\t\t"; cout << "                                      @\n";
-        cout << "\t\t\t\t"; cout << "     @@@@       @            @@@@     @     \n";
-        cout << "\t\t\t\t"; cout << "   @      @     @           @    @    @           \n";
-        cout << "\t\t\t\t"; cout << "  @        @    @          @      @   @           \n";
-        cout << "\t\t\t\t"; cout << " @          @   @         @        @  @  \n";
-        cout << "\t\t\t\t"; cout << "  @        @    @          @      @   @                 \n";
-        cout << "\t\t\t\t"; cout << "   @     @      @           @    @    @ \n";
-        cout << "\t\t\t\t"; cout << "     @@@@       @@@@@@@@@    @@@@     @ \n";
-        cout << "\t\t\t\t"; cout << "                    @@                @  \n";
-        cout << "\t\t\t\t"; cout << "@@@@@@@@@@@@@@ @@@@@@@@@@@            @ \n";
-        cout << "\t\t\t\t"; cout << "     @   @                \n";
-        cout << "\t\t\t\t"; cout << "     @ @ @        @@@@@@    \n";
-        cout << "\t\t\t\t"; cout << "   @@@@@@@@            @                            \n";
-        cout << "\t\t\t\t"; cout << "       @               @             \n";
-        cout << "\t\t\t\t"; cout << "      @ @         @@@@@@                                \n";
-        cout << "\t\t\t\t"; cout << "     @   @        @                \n";
-        cout << "\t\t\t\t"; cout << "    @     @       @@@@@@      \n\n\n\n\n";
-        cout << "\t\t\t\t"; cout << "     게임을 시작하려면 아무키나 누르세요.\n\n\n\n\n\n\n";
-        cout << "\t\t\t\t"; cout << "                \n\n\n\n\n\n\n";
-        cout << "\t\t\t\t"; cout << "                   \n\t\t\t\t";
-        getchar();
-        system("cls");
-    }
-};
-class Map
-{
-public:
-    void DrawMap()
-    {
 
-        for (int row = 0; row< MAP_SIZE; row++)
-        {
-            cout << "\t\t\t\t";
-            for (int col = 0; col < MAP_SIZE; col++)
-            {
-                if ((row == 0 || col == 0 || row == 20 || col == 20) && (row % 5 == 0) && (col % 5 == 0))
-                    cout << MAP[row][col] << " ";
-                else if ((row % 5 == 0 || col % 5 == 0) && (row == col) ||(col*row==75))
-                    cout << MAP[row][col] << " ";
-
-                else
-                    cout << " " <<" ";
-            }
-            cout << endl;
-        }
-        getchar();
-        system("cls");
-    }
-};
 
 int main()
 {
+    system("color 8f");
     system("mode con cols=100 lines=40");
+    Util util;
+    //이건 리스트로 관리할듯. 
+    Player player1, player2;
+    MainMenu mainMenu;
     Map map;
-    MainMenu MainMenu;
+    //util.TextColor(BLUE,LIGHTGRAY);
+    mainMenu.DrawMainScreen();
+    
     map.DrawMap();
 }
