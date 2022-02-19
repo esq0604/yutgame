@@ -1,6 +1,6 @@
 #pragma once
 #include<Windows.h>
-enum Color
+enum eColor
 {
 	BLACK,
 	BLUE,
