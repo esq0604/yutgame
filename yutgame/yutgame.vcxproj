@@ -143,6 +143,7 @@
     <ClCompile Include="DrawMenu.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayGame.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="yutgame.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="DrawMenu.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayGame.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

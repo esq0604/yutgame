@@ -21,8 +21,10 @@ enum eColor
 };
 class Util
 {
+	int x, y;
 public:
 	void TextColor(int foreground, int background);
+	void SetCursurPoint(int x, int y);
 private:
 
 };

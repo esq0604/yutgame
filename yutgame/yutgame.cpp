@@ -1,9 +1,11 @@
 #include<windows.h>
 #include<array>
+#include<conio.h>
 #include "Map.h"
 #include "DrawMenu.h"
 #include "Util.h"
 using namespace std;
+
 
 
 
@@ -29,13 +31,30 @@ int main()
     drawMenu.DrawStartScreen();
 
 
-    //순서정하기
-    //명령어는 상시로 돌아가야함.
-    
     while (true)
     {
-        map.DrawMap();  
+        char c;
+        map.DrawMap(); 
+        util.SetCursurPoint(70, 20);
+       
         //윷던지기 플레이어 1,2 
-        player[0].ThrowYut();
+        //map.DrawMap();
+        for (int i = 0; i < 2; i++)
+        {
+            c = getchar();
+                if(c == 32)
+                {
+                    util.SetCursurPoint(70, 20+(i+3));
+                    cout << "플레이어 " << i << " ";
+                    player[i].ThrowYut();
+
+                }
+\
+
+            
+        }
+
+        cout << endl;
     }
-}
+        
+ }

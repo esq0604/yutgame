@@ -1,5 +1,2 @@
-﻿  DrawMenu.cpp
-  yutgame.cpp
-C:\Users\user1\yutgame\yutgame\yutgame.cpp(14,10): warning C4101: 'util' :참조되지 않은 지역 변수입니다.
-  코드를 생성하고 있습니다...
-  yutgame.vcxproj -> C:\Users\user1\yutgame\x64\Debug\yutgame.exe
+﻿  yutgame.cpp
+  yutgame.vcxproj -> C:\Users\Administrator\Desktop\코딩\yutgame\x64\Debug\yutgame.exe
