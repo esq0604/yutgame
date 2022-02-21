@@ -1,6 +1,8 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include<array>
+#include<random>
 using namespace std;
 class Player
 {
@@ -9,9 +11,11 @@ public:
 	int playerPosition[21][21];
 	int throwCount;
 	int haveholseCount;
+	array<int, 5> yutState;
 public:
 	Player();
-	void Throw_Yut();
-	void Move_Player();
-	void Set_PlayerName();
+	void ThrowYut();
+	void MoveHorse();
+	void SetPlayerName();
+	int RandomNumber();
 };

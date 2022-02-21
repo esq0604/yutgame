@@ -1,5 +1,5 @@
 #include "DrawMenu.h"
-void DrawMenu::Draw_MainScreen()
+void DrawMenu::DrawMainScreen()
 {
 
     cout << "\n\n\n\n";
@@ -26,11 +26,11 @@ void DrawMenu::Draw_MainScreen()
     getchar();
     system("cls");
 }
-void DrawMenu::Draw_NamingScreen()
+void DrawMenu::DrawNamingScreen()
 {
     cout << "\t\t\t******************* 유닛 생성합니다 *******************\n";
 }
-void DrawMenu::Draw_HelpMessage()
+void DrawMenu::DrawHelpMessage()
 {
     cout << "\t\t\t*******************도움말*******************\n\n";
     cout << "\t\t\t<H>elp : 도움말\n";
@@ -39,33 +39,33 @@ void DrawMenu::Draw_HelpMessage()
     cout << "\t\t\t<Q>uit 게임 종료\n";
 
 }
-void DrawMenu::Draw_InputCommand()
+void DrawMenu::DrawInputCommand()
 {
     cout << "\t\t\t********************************************\n\n";
     cout << "\t\t\t명령어를 입력하세요 >";
-    Enter_InputCommand();
+    EnterInputCommand();
 }
-void DrawMenu::Draw_StartScreen()
+void DrawMenu::DrawStartScreen()
 {
     cout << "\t\t\t******************* 게임을 시작합니다 *******************\n\n";
     cout << "\t\t\t게임 시작\n ";
     cout << "\t\t\t게임 도움말 출력하시겠습니까?(y/n) ";
-    Enter_InputHelpMessage();
+    EnterInputHelpMessage();
 }
-void DrawMenu::Enter_InputHelpMessage()
+void DrawMenu::EnterInputHelpMessage()
 {
     while (true)
     {
         cin >> helpMessageOut;
         if (helpMessageOut == 'y')
         {
-            Draw_HelpMessage();
-            Draw_InputCommand();
+            DrawHelpMessage();
+            DrawInputCommand();
             break;
         }
         else if (helpMessageOut == 'n')
         {
-            Draw_InputCommand();
+            DrawInputCommand();
             break;
         }
         else
@@ -74,7 +74,7 @@ void DrawMenu::Enter_InputHelpMessage()
         }
     }
 }
-void DrawMenu::Enter_InputCommand()
+void DrawMenu::EnterInputCommand()
 {
     bool bOnLoop = true;
     while (bOnLoop)
@@ -86,8 +86,8 @@ void DrawMenu::Enter_InputCommand()
         {
             system("cls");
             bOnLoop = false;
-            Draw_HelpMessage();
-            Draw_InputCommand();
+            DrawHelpMessage();
+            DrawInputCommand();
             break;
         }
         case 'M':
@@ -96,6 +96,7 @@ void DrawMenu::Enter_InputCommand()
         }
         case 'T':
         {
+
             //일단은 넘어가기위해 FALSE로,.,
             bOnLoop = false;
             break;
@@ -108,8 +109,8 @@ void DrawMenu::Enter_InputCommand()
         {
             system("cls");
             bOnLoop = false;
-            Draw_HelpMessage();
-            Draw_InputCommand();
+            DrawHelpMessage();
+            DrawInputCommand();
             break;
         }
         }

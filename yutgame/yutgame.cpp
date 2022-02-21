@@ -16,17 +16,17 @@ int main()
     Player player[2];
     Map map;
     //util.TextColor(BLUE,LIGHTGRAY);
-    drawMenu.Draw_MainScreen();
+    drawMenu.DrawMainScreen();
 
-    drawMenu.Draw_NamingScreen();
+    drawMenu.DrawNamingScreen();
     
     for (int i = 0; i < 2; i++)
     {   
         cout << "\t\t\t플레이어 " << i+1 << "이름을 입력하세요: ";
-        player[i].Set_PlayerName();
+        player[i].SetPlayerName();
     }
     
-    drawMenu.Draw_StartScreen();
+    drawMenu.DrawStartScreen();
 
 
     //순서정하기
@@ -36,6 +36,6 @@ int main()
     {
         map.DrawMap();  
         //윷던지기 플레이어 1,2 
-
+        player[0].ThrowYut();
     }
 }

@@ -8,11 +8,11 @@ public:
 	char helpMessageOut;
 	char inputCommand;
 public:
-	void Draw_MainScreen();
-	void Draw_NamingScreen();
-	void Draw_StartScreen();
-	void Draw_HelpMessage();
-	void Draw_InputCommand();
-	void Enter_InputHelpMessage();
-	void Enter_InputCommand();
+	void DrawMainScreen();
+	void DrawNamingScreen();
+	void DrawStartScreen();
+	void DrawHelpMessage();
+	void DrawInputCommand();
+	void EnterInputHelpMessage();
+	void EnterInputCommand();
 };
