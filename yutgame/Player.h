@@ -12,12 +12,13 @@ public:
 	int throwCount;
 	int haveholseCount;
 	int yutCount;
-	array<int, 6> yutState;
+	string yutPrint;
+	array<int, 5> yutState;
 public:
 	Player();
 	void ThrowYut();
 	void MoveHorse();
 	void SetPlayerName();
-	char GetYutCount();
+	string GetYutCount(int yutCount);
 	int GetRandomNumber();
 };

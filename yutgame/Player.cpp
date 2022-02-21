@@ -4,25 +4,38 @@ Player::Player()
 {
 	 playerPosition[0][0] = 0;
 	 yutState={ 0 };
-	 yutCount = 0;
+	 throwCount = 1;
+	 yutCount=0;
+	 yutPrint = ' ';
 }
 
 void Player::ThrowYut()
 {
-	//È¦¼ö, Â¦¼ö 
-	for (int i = 1,j=2; i < 6; i+=2,j+2)
-	{
-		yutState[i] = GetRandomNumber();
-		yutState[j] = GetRandomNumber();
-	}
-	/*for (int i = 2; i < 6; i += 2)
-	{
-		yutState[i] = GetRandomNumber();
+	/*if (throwCount > 0)
+	{*/
+		//È¦¼ö, Â¦¼ö 
+		for (int i = 1; i < 5; i += 2)
+		{
+			yutState[i] = GetRandomNumber();
+		}
+		for (int j = 2; j < 5; j += 2)
+		{
+			yutState[j] = GetRandomNumber();
+		}
+		/*for (int i = 2; i < 6; i += 2)
+		{
+			yutState[i] = GetRandomNumber();
+		}*/
+		for (int i = 1; i < 5; i++)
+		{
+			yutCount += yutState[i];
+			cout << yutState[i] << " ";
+		}
+		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
+		yutCount = 0;
+		/*throwCount--;
 	}*/
-	for (int i = 1; i < 6; i++)
-	{
-		cout << yutState[i] << " ";
-	}
+		
 }
 void Player::MoveHorse()
 {
@@ -45,9 +58,33 @@ int Player::GetRandomNumber()
 	return dis(gen);
 }
 
-char Player::GetYutCount()
+//µµ,·¡,¹Ì,µîµî 2¹ÙÀÌÆ®, char´Â 1¹ÙÀÌÆ®
+string Player::GetYutCount(int yutCount)
 {
-	switch()
+	switch (yutCount)
+	{
+	case 0:
+		yutPrint = "¸ð ÇÑ¹ø´õ ! ";
+		throwCount++;
+		break;
+	case 1:
+		yutPrint = "µµ";
+		break;
+	case 2:
+		yutPrint = "°³";
+		break;
+	case 3:
+		yutPrint = "°É";
+		break;
+	case 4:
+		yutPrint = "À·";
+		break;
+	}
+	return yutPrint;
+
 }
+	
+	
+
 
 
