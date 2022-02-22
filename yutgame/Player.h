@@ -10,7 +10,7 @@ public:
 	string playerName;
 	int playerPosition[21][21];
 	int throwCount;
-	int haveholseCount;
+	int haveHolseCount;
 	int yutCount;
 	string yutPrint;
 	array<int, 5> yutState;
