@@ -7,6 +7,7 @@ Player::Player()
 	 throwCount = 1;
 	 yutCount=0;
 	 yutPrint = ' ';
+	 haveHolseCount = 3;
 }
 
 void Player::ThrowYut()
@@ -37,6 +38,11 @@ void Player::ThrowYut()
 void Player::MoveHorse()
 {
 
+}
+
+void Player::GetHorseCount()
+{
+	cout<<haveHolseCount;
 }
 
 

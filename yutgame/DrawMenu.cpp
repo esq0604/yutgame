@@ -39,6 +39,25 @@ void DrawMenu::DrawHelpMessage()
     cout << "\t\t\t<Q>uit 게임 종료\n";
 
 }
+void DrawMenu::DrawHelpMessageInGame()
+{
+    SetCursurPoint(55, 0);
+     cout << "*******************도움말*******************";
+     SetCursurPoint(60, 2);
+     cout << "<H>elp : 도움말";
+
+     SetCursurPoint(60, 4);
+     cout << "<M>ap : 맵을 화면에 출력함";
+
+     SetCursurPoint(60, 6);
+     cout << "<T>hrow : 윷 던지기";
+
+     SetCursurPoint(60, 8);
+     cout << "<Q>uit 게임 종료";
+
+
+
+}
 void DrawMenu::DrawInputCommand()
 {
     cout << "\t\t\t********************************************\n\n";
@@ -116,6 +135,8 @@ void DrawMenu::EnterInputCommand()
         }
     }
 }
+
+
 
 
 
