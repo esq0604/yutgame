@@ -4,7 +4,7 @@
 #include<array>
 #include<random>
 using namespace std;
-class Player
+class Player 
 {
 public:
 	string playerName;

@@ -1,8 +1,9 @@
 #pragma once
 #include<iostream>
 #include"Player.h"
+#include"Util.h"
 using namespace std;
-class DrawMenu
+class DrawMenu :public Util
 {
 public:
 	char helpMessageOut;
@@ -15,4 +16,5 @@ public:
 	void DrawInputCommand();
 	void EnterInputHelpMessage();
 	void EnterInputCommand();
+	void DrawHelpMessageInGame();
 };

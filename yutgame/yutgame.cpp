@@ -29,36 +29,41 @@ int main()
     }
     
     drawMenu.DrawStartScreen();
-
+    system("cls");
 
     int logCount = 2;
     while (true)
     {
-        map.DrawMap(); 
         char c;
-        //util.SetCursurPoint(70, 20);
-        util.SetCursurPoint(55, logCount-4);
-        cout << "SPACE를 눌러 윷을 던지세요 ";
+        map.DrawMap();
+        drawMenu.DrawHelpMessageInGame();
+
+        util.SetCursurPoint(0, 40);
+        //cout << "<T>hrow를 눌러 윷을 던지세요 ";
         cin >> c;
         if(c == 'T')
         {
-            util.SetCursurPoint(55, (25 + logCount));
+            
+            util.SetCursurPoint(55, (logCount));
             cout << "플레이어 " << "의 결과  ";
             player[1].ThrowYut();
-            util.SetCursurPoint(55, (25 + logCount+2));
+            util.SetCursurPoint(55, (logCount+2));
             cout << "플레이어 " << "의 결과  ";
 
             player[2].ThrowYut();
             logCount += 2;
         }     
-        
-        if (logCount == 10)
+        else
+        {
+            cout << "잘못된 입력입니다";
+        }
+        if (logCount == 20)
         {
             logCount = 0;
+            system("cls");
         }
-        cout << endl;
         Sleep(2000);
-        system("cls");
+       
     }
         
  }
