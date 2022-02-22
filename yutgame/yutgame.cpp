@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
     system("color 8f");
-    system("mode con cols=100 lines=40");
+    system("mode con cols=110 lines=40");
     Util util;
     DrawMenu drawMenu;
     Player player[3];
@@ -31,30 +31,34 @@ int main()
     drawMenu.DrawStartScreen();
 
 
+    int logCount = 2;
     while (true)
     {
-        char c;
         map.DrawMap(); 
-        util.SetCursurPoint(70, 20);
-       
-        //윷던지기 플레이어 1,2 
-        //map.DrawMap();
-        for (int i = 1; i < 3; i++)
+        char c;
+        //util.SetCursurPoint(70, 20);
+        util.SetCursurPoint(55, logCount-4);
+        cout << "SPACE를 눌러 윷을 던지세요 ";
+        cin >> c;
+        if(c == 'T')
         {
-            c = getchar();
-                if(c == 32)
-                {
-                    util.SetCursurPoint(55, 20+(i+3));
-                    cout << "플레이어 " << i << "의 결과  ";
-                    player[i].ThrowYut();
+            util.SetCursurPoint(55, (25 + logCount));
+            cout << "플레이어 " << "의 결과  ";
+            player[1].ThrowYut();
+            util.SetCursurPoint(55, (25 + logCount+2));
+            cout << "플레이어 " << "의 결과  ";
 
-                }
-
-
-            
+            player[2].ThrowYut();
+            logCount += 2;
+        }     
+        
+        if (logCount == 10)
+        {
+            logCount = 0;
         }
-
         cout << endl;
+        Sleep(2000);
+        system("cls");
     }
         
  }

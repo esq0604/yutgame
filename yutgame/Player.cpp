@@ -22,10 +22,7 @@ void Player::ThrowYut()
 		{
 			yutState[j] = GetRandomNumber();
 		}
-		/*for (int i = 2; i < 6; i += 2)
-		{
-			yutState[i] = GetRandomNumber();
-		}*/
+
 		for (int i = 1; i < 5; i++)
 		{
 			yutCount += yutState[i];
@@ -58,7 +55,7 @@ int Player::GetRandomNumber()
 	return dis(gen);
 }
 
-//도,래,미,등등 2바이트, char는 1바이트
+//2바이트 , char는 1바이트 
 string Player::GetYutCount(int yutCount)
 {
 	switch (yutCount)
