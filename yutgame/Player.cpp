@@ -35,9 +35,9 @@ void Player::ThrowYut()
 	}*/
 		
 }
-void Player::MoveHorse()
+void Player::MoveHorse(int yutCount)
 {
-
+	
 }
 
 void Player::GetHorseCount()

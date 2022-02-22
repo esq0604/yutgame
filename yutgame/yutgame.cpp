@@ -36,7 +36,7 @@ int main()
         system("cls");
 
         char c;
-        map.DrawMap(); 
+        map.CreateMap();
         drawMenu.DrawHelpMessageInGame();
         util.SetCursurPoint(0, 25);
         cout << "플레이어 1 보유 말의 수 ";

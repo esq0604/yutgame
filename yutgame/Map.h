@@ -6,7 +6,7 @@ using namespace std;
 class Map
 {
 public:
-    void DrawMap();
+    void CreateMap();
 
 private:
     int MAP[MAP_SIZE][MAP_SIZE] = { 0 };

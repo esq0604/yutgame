@@ -18,7 +18,7 @@ public:
 public:
 	Player();
 	void ThrowYut();
-	void MoveHorse();
+	void MoveHorse(int yutCount);
 	void GetHorseCount();
 	void SetPlayerName();
 	string GetYutCount(int yutCount);

@@ -1,5 +1,5 @@
 #include "Map.h"
-void Map::DrawMap()
+void Map::CreateMap()
 {
         for (int row = 0; row < MAP_SIZE; row++)
         {
