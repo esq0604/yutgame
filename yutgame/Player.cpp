@@ -2,18 +2,19 @@
 #include "Player.h"
 Player::Player()
 {
-	 playerPosition[0][0] = 0;
-	 yutState={ 0 };
-	 throwCount = 1;
-	 yutCount=0;
-	 yutPrint = ' ';
-	 haveHolseCount = 3;
+	playerPosition[0][0] = 0;
+	yutState = { 0 };
+	throwCount = 1;
+	yutCount = 0;
+	yutPrint = ' ';
+	haveHolseCount = 3;
+
 }
 
 void Player::ThrowYut()
 {
-	/*if (throwCount > 0)
-	{*/
+	//if (throwCount > 0)
+	
 		//È¦¼ö, Â¦¼ö 
 		for (int i = 1; i < 5; i += 2)
 		{

@@ -19,5 +19,4 @@ void Map::CreateMap()
        
         //getchar();
         //system("cls");
-        
 }
