@@ -8,10 +8,11 @@ Player::Player()
 	yutCount = 0;
 	yutPrint = ' ';
 	haveHolseCount = 3;
+	
 
 }
 
-void Player::ThrowYut()
+void Player::ThrowYut(Map& map)
 {
 	//if (throwCount > 0)
 	
@@ -31,15 +32,16 @@ void Player::ThrowYut()
 			cout << yutState[i] << " ";
 		}
 		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
+		horse[0].MoveHorse(yutCount,map);
 		yutCount = 0;
 		/*throwCount--;
 	}*/
 		
 }
-void Player::MoveHorse(int yutCount)
-{
-	
-}
+//void Player::MoveHorse(int yutCount) 
+//{
+//	
+//}
 
 void Player::GetHorseCount()
 {

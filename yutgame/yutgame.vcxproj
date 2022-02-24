@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Do.cpp" />
     <ClCompile Include="Horse.cpp" />
     <ClCompile Include="DrawMenu.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -149,7 +148,6 @@
     <ClCompile Include="yutgame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Do.h" />
     <ClInclude Include="Horse.h" />
     <ClInclude Include="DrawMenu.h" />
     <ClInclude Include="Map.h" />
