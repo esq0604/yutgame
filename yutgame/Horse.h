@@ -7,10 +7,10 @@ public:
 	Map map;
 	Util util;
 	bool horseState=false;
-	int currentRowPos,currentColPos;
+	int currentRowPos=99,currentColPos=99;
 
 public:
 	//Horse();
 	void MoveHorse(int yutCount, Map& map);
-	//void SetHorsePos(int yutCount, int& row, int& col);
+	void SetHorsePos(int row, int col);
 };

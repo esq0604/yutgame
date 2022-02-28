@@ -14,9 +14,7 @@ Player::Player()
 
 void Player::ThrowYut(Map& map)
 {
-	//if (throwCount > 0)
-	
-		//È¦¼ö, Â¦¼ö 
+	 
 		for (int i = 1; i < 5; i += 2)
 		{
 			yutState[i] = GetRandomNumber();
@@ -34,14 +32,10 @@ void Player::ThrowYut(Map& map)
 		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
 		horse[0].MoveHorse(yutCount,map);
 		yutCount = 0;
-		/*throwCount--;
-	}*/
+	
 		
 }
-//void Player::MoveHorse(int yutCount) 
-//{
-//	
-//}
+
 
 void Player::GetHorseCount()
 {
