@@ -1,10 +1,10 @@
 #include "Map.h"
 void Map::DrawMap()
 {
-        for (int row = 0; row < MAP_SIZE; row++)
+        for (int row = 0; row < ROW; row++)
         {
             cout << "\t";
-            for (int col = 0; col < MAP_SIZE; col++)
+            for (int col = 0; col < COL; col++)
             {
                 if ((row == 0 || col == 0 || row == 20 || col == 20) && (row % 5 == 0) && (col % 5 == 0))
                     cout << MAP[row][col] << " ";
@@ -16,8 +16,12 @@ void Map::DrawMap()
             }
             cout << endl;
         }
-       
+
         //getchar();
         //system("cls");
-        
+}
+
+void Map::CreateMap()
+{
+
 }

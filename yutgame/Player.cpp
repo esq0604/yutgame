@@ -2,18 +2,20 @@
 #include "Player.h"
 Player::Player()
 {
-	 playerPosition[0][0] = 0;
-	 yutState={ 0 };
-	 throwCount = 1;
-	 yutCount=0;
-	 yutPrint = ' ';
-	 haveHolseCount = 3;
+	playerPosition[0][0] = 0;
+	yutState = { 0 };
+	throwCount = 1;
+	yutCount = 0;
+	yutPrint = ' ';
+	haveHolseCount = 3;
+	
+
 }
 
-void Player::ThrowYut()
+void Player::ThrowYut(Map& map)
 {
-	/*if (throwCount > 0)
-	{*/
+	//if (throwCount > 0)
+	
 		//È¦¼ö, Â¦¼ö 
 		for (int i = 1; i < 5; i += 2)
 		{
@@ -30,14 +32,20 @@ void Player::ThrowYut()
 			cout << yutState[i] << " ";
 		}
 		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
+		horse[0].MoveHorse(yutCount,map);
 		yutCount = 0;
 		/*throwCount--;
 	}*/
 		
 }
-void Player::MoveHorse()
-{
+//void Player::MoveHorse(int yutCount) 
+//{
+//	
+//}
 
+void Player::GetHorseCount()
+{
+	cout<<haveHolseCount;
 }
 
 

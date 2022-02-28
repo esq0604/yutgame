@@ -1,13 +1,16 @@
 #pragma once
 #include<iostream>
 #include<windows.h>
-#define MAP_SIZE 21
+#define COL 21
+#define ROW 21
 using namespace std;
 class Map
 {
 public:
     void DrawMap();
-
-private:
-    int MAP[MAP_SIZE][MAP_SIZE] = { 0 };
+    void CreateMap();
+public:
+    int colIdx = 20;
+    int rowIdx = 20;
+    int  MAP[ROW][COL] = { 0 };
 };

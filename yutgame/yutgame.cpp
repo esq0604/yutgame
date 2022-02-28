@@ -31,37 +31,35 @@ int main()
     drawMenu.DrawStartScreen();
     system("cls");
 
-    int logCount = 2;
+
     while (true)
     {
+        system("cls");
+
         char c;
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
-
-        util.SetCursurPoint(0, 40);
-        //cout << "<T>hrow를 눌러 윷을 던지세요 ";
+        util.SetCursurPoint(0, 25);
+        cout << "플레이어 1 보유 말의 수 ";
+         player[1].GetHorseCount();
+        util.SetCursurPoint(0, 27);
+        cout << "플레이어 2 보유 말의 수 ";
+         player[2].GetHorseCount();
+        util.SetCursurPoint(60,10);
         cin >> c;
         if(c == 'T')
         {
-            
-            util.SetCursurPoint(55, (logCount));
+            util.SetCursurPoint(60 ,12);
             cout << "플레이어 " << "의 결과  ";
-            player[1].ThrowYut();
-            util.SetCursurPoint(55, (logCount+2));
-            cout << "플레이어 " << "의 결과  ";
+            player[1].ThrowYut(map);
+            //util.SetCursurPoint(60,14);
+            //cout << "플레이어 " << "의 결과  ";
+            //player[2].ThrowYut();
 
-            player[2].ThrowYut();
-            logCount += 2;
         }     
-        else
-        {
-            cout << "잘못된 입력입니다";
-        }
-        if (logCount == 20)
-        {
-            logCount = 0;
-            system("cls");
-        }
+        
+ 
+        cout << endl;
         Sleep(2000);
        
     }
