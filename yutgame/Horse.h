@@ -14,4 +14,6 @@ public:
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
 	void SetHorsePos(int row, int col);
 	void MoveHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
+	void MoveCrossHorse(Map& map,int currentRowPos, int currentColPos, int loopTime);
+	void MoveCenterHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 };

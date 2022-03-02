@@ -64,6 +64,7 @@ void Horse::SetHorsePos(int row, int col)
 	currentColPos = col;
 }
 
+//
 void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTime)
 {
 	
@@ -119,5 +120,43 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 	}
 }
 
+//지름길 이동 
+void Horse::MoveCrossHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
+{
+	//(0,20)일때
+	if (currentRowPos == 0 && currentColPos == 20)
+	{
+		map.MAP[currentRowPos][currentColPos] = 0;
+		for (int i = 0; i < loopTime; i++)
+		{
+			currentRowPos += 5;
+			currentColPos -= 5;
+		}
+	}
+	//(0,0)일때
+	else if (currentRowPos == 0 && currentColPos == 0)
+	{
+		for (int i = 0; i < loopTime; i++)
+		{
+			currentRowPos += 5;
+			currentColPos += 5;
+		}
+	}
+}
+void Horse::MoveCenterHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
+{
+	if (currentRowPos == 10 && currentColPos == 10)
+	{
+		map.MAP[currentRowPos][currentColPos] = 0;
+		for (int i = 0; i < loopTime; i++)
+		{
+			if (currentColPos < 20 && currentRowPos < 20)
+			{
+				currentColPos += 5;
+				currentRowPos += 5;
+			}
+		}
+	}
+}
 
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??
