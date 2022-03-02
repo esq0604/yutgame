@@ -18,10 +18,12 @@ void Player::ThrowYut(Map& map)
 		for (int i = 1; i < 5; i += 2)
 		{
 			yutState[i] = GetRandomNumber();
+			//yutState[i] = 0;
 		}
 		for (int j = 2; j < 5; j += 2)
 		{
 			yutState[j] = GetRandomNumber();
+			//yutState[j] = 0;
 		}
 
 		for (int i = 1; i < 5; i++)
@@ -30,7 +32,7 @@ void Player::ThrowYut(Map& map)
 			cout << yutState[i] << " ";
 		}
 		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
-		horse[0].MoveHorse(yutCount,map);
+		horse[0].MoveHorseSystem(yutCount,map,horse[0].currentRowPos,horse[0].currentColPos);
 		yutCount = 0;
 	
 		

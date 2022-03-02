@@ -6,11 +6,12 @@ class Horse
 public:
 	Map map;
 	Util util;
-	bool horseState=false;
-	int currentRowPos=99,currentColPos=99;
+	bool horseInMap=false;
+	int currentRowPos,currentColPos;
 
 public:
-	//Horse();
-	void MoveHorse(int yutCount, Map& map);
+	Horse();
+	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
 	void SetHorsePos(int row, int col);
+	void MoveHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 };
