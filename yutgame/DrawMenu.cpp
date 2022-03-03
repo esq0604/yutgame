@@ -136,6 +136,20 @@ void DrawMenu::EnterInputCommand()
     }
 }
 
+bool DrawMenu::DrawShortRoadSelect()
+{
+
+    while (true)
+    {
+        cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
+        cin >> inputShortRoad;
+        if (inputShortRoad == 'y')
+            return true;
+        else if (inputShortRoad == 'n')
+            return false;
+    }
+
+}
 
 
 

@@ -6,11 +6,15 @@ Horse::Horse()
 	//horseState로 판별하여 if문에서 넣어도 될듯?
 	currentRowPos = 99;
 	currentColPos = 99;
+	firstShortRoad = false;
+	secondShortRoad = false;
+	centerShortRoad = false;
+	nomalRoad = true;
 }
 
 void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentColPos)
 {
-	map.MAP[21][21];
+	map.MAP[ROW][COL];
 	switch (yutCount)
 	{
 	case 0:
@@ -64,11 +68,11 @@ void Horse::SetHorsePos(int row, int col)
 	currentColPos = col;
 }
 
-//
 void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTime)
 {
 	
-	if (currentColPos == 20 && (currentRowPos <= 20 || currentRowPos >= 0))
+	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
+	if (currentColPos == 20 && (currentRowPos <= 20 || currentRowPos >= 0)&& nomalRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
@@ -79,9 +83,17 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 				currentColPos -= 5;
 		}
 		map.MAP[currentRowPos][currentColPos] = 1;
+
+		//말을 옮긴 뒤 위치체크 
+		if (currentRowPos == 0 && currentColPos == 20)
+		{
+			firstShortRoad = true;
+			nomalRoad = false;
+		}
 		SetHorsePos(currentRowPos, currentColPos);
 	}
-	else if (currentRowPos == 0 && (currentColPos <= 20 || currentColPos >= 0))
+
+	else if (currentRowPos == 0 && (currentColPos <= 20 || currentColPos >= 0)&& nomalRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
@@ -92,9 +104,16 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 				currentRowPos += 5;
 		}
 		map.MAP[currentRowPos][currentColPos] = 1;
+
+		if (currentRowPos == 0 && currentColPos == 0)
+		{
+			secondShortRoad = true;
+			nomalRoad = false;
+		}
 		SetHorsePos(currentRowPos, currentColPos);
 	}
-	else if (currentColPos == 0 && (currentRowPos <= 20 || currentRowPos >= 0))
+
+	else if (currentColPos == 0 && (currentRowPos <= 20 || currentRowPos >= 0)&& nomalRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
@@ -107,7 +126,8 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 		map.MAP[currentRowPos][currentColPos] = 1;
 		SetHorsePos(currentRowPos, currentColPos);
 	}
-	else if (currentRowPos == 20 && (currentColPos <= 20 || currentColPos >= 0))
+
+	else if (currentRowPos == 20 && (currentColPos <= 20 || currentColPos >= 0)&& nomalRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
@@ -120,32 +140,72 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 	}
 }
 
-//지름길 이동 
-void Horse::MoveCrossHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
+//void Horse::SetShortRoad(int currentRowPos, int currentColPos)
+//{
+//	//(0,20)일때
+//	if (currentRowPos == 0 && currentColPos == 20) 
+//	{
+//		firstShortRoad = true;
+//		
+//	}
+//	//(0,0)일때
+//	else if (currentRowPos == 0 && currentColPos == 0)
+//	{
+//		secondShortRoad = true;
+//	
+//	}
+//	else if (currentRowPos == 10 && currentColPos == 10)
+//	{
+//		centerShortRoad = true;
+//	}
+//}
+void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
 {
-	//(0,20)일때
-	if (currentRowPos == 0 && currentColPos == 20)
+	if (firstShortRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
 		{
-			currentRowPos += 5;
-			currentColPos -= 5;
+			if (currentRowPos < 20 && currentColPos>9)
+			{
+				currentRowPos += 5;
+				currentColPos -= 5;
+			}
+			if (currentRowPos == 20 && currentColPos == 0)
+			{
+				firstShortRoad = false;
+				nomalRoad = true;
+				currentColPos += 5;
+			}
 		}
+
+		if (currentRowPos == 10 && currentColPos == 10)
+		{
+			firstShortRoad = false;
+			centerShortRoad = true;
+		}
+		
+		map.MAP[currentRowPos][currentColPos] = 1;
+		SetHorsePos(currentRowPos, currentColPos);
 	}
-	//(0,0)일때
-	else if (currentRowPos == 0 && currentColPos == 0)
+	else if (secondShortRoad)
 	{
+		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
 		{
-			currentRowPos += 5;
-			currentColPos += 5;
+		currentRowPos += 5;
+		currentColPos += 5;
 		}
+
+		if (currentRowPos == 10 && currentColPos == 10)
+		{ 
+			secondShortRoad = false;
+			centerShortRoad = true;
+		}
+		map.MAP[currentRowPos][currentColPos] = 1;
+		SetHorsePos(currentRowPos, currentColPos);
 	}
-}
-void Horse::MoveCenterHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
-{
-	if (currentRowPos == 10 && currentColPos == 10)
+	else if (centerShortRoad)
 	{
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
@@ -156,6 +216,8 @@ void Horse::MoveCenterHorse(Map& map, int currentRowPos, int currentColPos, int 
 				currentRowPos += 5;
 			}
 		}
+		map.MAP[currentRowPos][currentColPos] = 1;
+		SetHorsePos(currentRowPos, currentColPos);
 	}
 }
 

@@ -8,6 +8,7 @@ class DrawMenu : Util
 public:
 	char helpMessageOut;
 	char inputCommand;
+	char inputShortRoad;
 public:
 	void DrawMainScreen();
 	void DrawNamingScreen();
@@ -17,4 +18,5 @@ public:
 	void DrawHelpMessageInGame();
 	void EnterInputHelpMessage();
 	void EnterInputCommand();
+	bool DrawShortRoadSelect();
 };

@@ -3,7 +3,7 @@
 Player::Player()
 {
 	playerPosition[0][0] = 0;
-	yutState = { 0 };
+	yutState = { 0};
 	throwCount = 1;
 	yutCount = 0;
 	yutPrint = ' ';
@@ -15,15 +15,14 @@ Player::Player()
 void Player::ThrowYut(Map& map)
 {
 	 
+
 		for (int i = 1; i < 5; i += 2)
 		{
 			yutState[i] = GetRandomNumber();
-			//yutState[i] = 0;
 		}
 		for (int j = 2; j < 5; j += 2)
 		{
 			yutState[j] = GetRandomNumber();
-			//yutState[j] = 0;
 		}
 
 		for (int i = 1; i < 5; i++)
