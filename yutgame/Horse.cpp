@@ -37,7 +37,7 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 		if (currentColPos == 99 && currentRowPos == 99)
 		{
 			map.MAP[15][20] = 1;
-			SetHorsePos(5, 20);
+			SetHorsePos(15, 20);
 		}
 		MoveHorse(map, currentRowPos, currentColPos, 2);
 		break;
@@ -166,18 +166,22 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		map.MAP[currentRowPos][currentColPos] = 0;
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentRowPos < 20 && currentColPos>9)
+			if (currentRowPos < 20 && currentColPos>0)
 			{
 				currentRowPos += 5;
 				currentColPos -= 5;
+			
 			}
-			if (currentRowPos == 20 && currentColPos == 0)
+			else if (currentRowPos == 20 && currentColPos == 0)
 			{
-				firstShortRoad = false;
+				//false로 바꿔서 for문만큼 돌아가지가 않음. 
 				nomalRoad = true;
-				currentColPos += 5;
+				firstShortRoad = false;
+				currentColPos += 5*(loopTime-i);
 			}
+			
 		}
+		
 
 		if (currentRowPos == 10 && currentColPos == 10)
 		{

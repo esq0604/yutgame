@@ -7,9 +7,8 @@ Player::Player()
 	throwCount = 1;
 	yutCount = 0;
 	yutPrint = ' ';
-	haveHolseCount = 3;
-	
-
+	haveHolseCount = 4;
+	currentHorseIdx = 3;
 }
 
 void Player::ThrowYut(Map& map)
@@ -31,13 +30,17 @@ void Player::ThrowYut(Map& map)
 			cout << yutState[i] << " ";
 		}
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
-		horse[0].MoveHorseSystem(yutCount,map,horse[0].currentRowPos,horse[0].currentColPos);
+		horse[currentHorseIdx].MoveHorseSystem(yutCount,map,horse[currentHorseIdx].currentRowPos,horse[currentHorseIdx].currentColPos);
 		yutCount = 0;
 	
 		
 }
 
+void Player::CreateHorse()
+{
+	haveHolseCount--;
 
+}
 void Player::GetHorseCount()
 {
 	cout<<haveHolseCount;
@@ -51,6 +54,12 @@ void Player::SetPlayerName()
 	playerName = name;
 }
 
+
+void Player::SelectHorse()
+{
+
+	cout << "움직일 말을 선택하세요";
+}
 int Player::GetRandomNumber()
 {
 	random_device rd;

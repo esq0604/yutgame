@@ -1,18 +1,19 @@
 #pragma once
 #include"Map.h"
 #include"Util.h"
-#include"DrawMenu.h"
+//#include"DrawMenu.h"
 class Horse
 {
 public:
 	Map map;
 	Util util;
-	DrawMenu drawMenu;
+	//DrawMenu drawMenu;
 	bool horseInMap=false;
 	bool firstShortRoad;
 	bool secondShortRoad;
 	bool centerShortRoad;
 	bool nomalRoad;
+	bool horseOnState;
 	int currentRowPos,currentColPos;
 
 public:

@@ -41,23 +41,21 @@ void DrawMenu::DrawHelpMessage()
 }
 void DrawMenu::DrawHelpMessageInGame()
 {
-    SetCursurPoint(55, 0);
-     cout << "*******************도움말*******************";
-     SetCursurPoint(60, 2);
-     cout << "<H>elp : 도움말";
+    util.SetCursurPoint(55, 0);
+    cout << "*******************도움말*******************";
+    util.SetCursurPoint(60, 2);
+    cout << "<H>elp : 도움말";
 
-     SetCursurPoint(60, 4);
-     cout << "<M>ap : 맵을 화면에 출력함";
+    util.SetCursurPoint(60, 4);
+    cout << "<M>ap : 맵을 화면에 출력함";
 
-     SetCursurPoint(60, 6);
-     cout << "<T>hrow : 윷 던지기";
+    util.SetCursurPoint(60, 6);
+    cout << "<T>hrow : 윷 던지기";
 
-     SetCursurPoint(60, 8);
-     cout << "<Q>uit 게임 종료";
-
-
-
+    util.SetCursurPoint(60, 8);
+    cout << "<Q>uit 게임 종료";
 }
+
 void DrawMenu::DrawInputCommand()
 {
     cout << "\t\t\t********************************************\n\n";
@@ -136,20 +134,43 @@ void DrawMenu::EnterInputCommand()
     }
 }
 
-bool DrawMenu::DrawShortRoadSelect()
+void DrawMenu::OnHorseQuestion(Player& player)
 {
-
-    while (true)
+    char horseOnState;
+    //어느말을 올릴지 알려주는것도 좋을듯 
+    if (player.haveHolseCount > 0)
     {
-        cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
-        cin >> inputShortRoad;
-        if (inputShortRoad == 'y')
-            return true;
-        else if (inputShortRoad == 'n')
-            return false;
+        cout << "말을 올리겠습니까? (y/n)";
+        cin >> horseOnState;
+        if (horseOnState == 'y')
+        {
+            player.currentHorseIdx--;
+            player.haveHolseCount--;
+        }
+        else if (horseOnState == 'n')
+        {
+
+        }
+    }
+    else if (player.haveHolseCount <= 0)
+    {
+        cout << "말이 더이상 없습니다";
     }
 
+
 }
+
+//void DrawMenu::DrawShortRoadSelect(Horse& horse)
+//{
+//    cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
+//    cin >> inputShortRoad;
+//    if (inputShortRoad == 'y')
+//        horse.
+//    else if (inputShortRoad == 'n')
+//        return false;
+//
+//
+//}
 
 
 
