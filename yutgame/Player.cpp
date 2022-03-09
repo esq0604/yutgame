@@ -93,6 +93,14 @@ string Player::GetYutCount(int yutCount)
 	return yutPrint;
 
 }
+
+void Player::HorseNumerOnPos(Map& map, Horse* horse)
+{
+	if (map.MAP[horse->currentRowPos][horse->currentColPos] == 1)
+	{
+
+	}
+}
 	
 	
 

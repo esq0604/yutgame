@@ -3,14 +3,14 @@
 #include<iostream>
 #include<array>
 #include<random>
+#include "Map.h"
 #include"Horse.h"
-//#include"DrawMenu.h"
 
 using namespace std;
 class Player 
 {
+
 public:
-	//DrawMenu drawMenu;
 	string playerName;
 	int playerPosition[21][21];
 	int throwCount;
@@ -18,17 +18,17 @@ public:
 	int yutCount;
 	int currentHorseIdx;
 	string yutPrint;
-	//int horseState;
 	array<int, 5> yutState;
+	Map map;
 	Horse horse[3];
 public:
 	Player();
 	void ThrowYut(Map& map);
-	//void MoveHorse(int yutCount);
 	void GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
+	void SelectHorse();
+	void HorseNumerOnPos(Map& map, Horse* horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
-	void SelectHorse();
 };

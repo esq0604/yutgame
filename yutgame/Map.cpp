@@ -21,7 +21,7 @@ void Map::DrawMap()
         //system("cls");
 }
 
-void Map::CreateMap()
-{
-
-}
+//void Map::CreateMap(Map& map)
+//{
+//
+//}
