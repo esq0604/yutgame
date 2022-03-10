@@ -1,6 +1,6 @@
 //클래스 구현부 
 #include "Player.h"
-Player::Player()
+Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0)
 {
 	playerPosition[0][0] = 0;
 	yutState = { 0};
@@ -55,20 +55,49 @@ void Player::SetPlayerName()
 }
 
 
-void Player::SelectHorse(Horse horse)
+void Player::SelectHorse(Horse *horse)
 {
 	char keySelect;
-	cout << "움직일 말을 선택하세요";
-	
+	bool t=true;
+	selectHorseIdx = currentHorseIdx;
+	cout << "움직일 말을 선택하세요 (<-/->), Enter";
 	keySelect = _getch();
-	switch (keySelect)
+	while (t)
 	{
-	case KEY_LEFT:
-		util.SetCursurPoint(1, 2);
-		break;
-	case KEY_RIGHT:
-		util.SetCursurPoint(1, 2);
-		break;
+		switch (keySelect)
+		{
+		case KEY_LEFT:
+			selectHorseIdx--;
+			if (selectHorseIdx < MIN_HORSE_IDX)
+			{
+				selectHorseIdx = MAX_HORSE_IDX;
+				SelectHorseCurssor(horse + selectHorseIdx);
+			}
+			//util.SetCursurPoint(1, 2);
+			break;
+		case KEY_RIGHT:
+			selectHorseIdx++;
+			if (selectHorseIdx > MAX_HORSE_IDX)
+			{
+				selectHorseIdx = MIN_HORSE_IDX;
+				SelectHorseCurssor(horse + selectHorseIdx);
+			}
+			//util.SetCursurPoint(1, 2);
+			break;
+		case KEY_ENTER:
+			t = false;
+		}
+	}
+}
+void Player::SelectHorseCurssor(Horse* horse)
+{
+	if (horse->currentColPos == MAX_HORSE_POS && horse->currentRowPos <= MAX_HORSE_POS)
+	{
+		util.SetCursurPoint(48, horse->currentColPos + CURSOR_POINT_COLNUM);
+	}
+	else if (horse->currentColPos <= MAX_HORSE_POS && horse->currentRowPos == MIN_HORSE_POS)
+	{
+		util.SetCursurPoint(horse->currentRowPos + CURSOR_POINT_ROWNUM, CURSOR_POINT_COLNUM);
 	}
 }
 int Player::GetRandomNumber()

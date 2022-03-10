@@ -12,11 +12,18 @@ enum eKEY
 {
 	KEY_LEFT = 75,
 	KEY_RIGHT = 77,
+	KEY_ENTER =13,
 };
 using namespace std;
 class Player 
 {
-
+private:
+	const int MIN_HORSE_IDX;
+	const int MAX_HORSE_IDX;
+	const int MAX_HORSE_POS;
+	const int MIN_HORSE_POS;
+	const int CURSOR_POINT_COLNUM;
+	const int CURSOR_POINT_ROWNUM;
 public:
 	string playerName;
 	int playerPosition[21][21];
@@ -24,6 +31,7 @@ public:
 	int haveHolseCount;
 	int yutCount;
 	int currentHorseIdx;
+	int selectHorseIdx;
 	string yutPrint;
 	array<int, 5> yutState;
 	Map map;
@@ -35,7 +43,8 @@ public:
 	void GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
-	void SelectHorse(Horse horse);
+	void SelectHorse(Horse *horse);
+	void SelectHorseCurssor(Horse *horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
 };
