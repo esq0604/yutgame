@@ -28,7 +28,6 @@ public:
 	void SetPlayerName();
 	void CreateHorse();
 	void SelectHorse();
-	void HorseNumerOnPos(Map& map, Horse* horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
 };

@@ -1,6 +1,7 @@
 #include "Map.h"
 void Map::DrawMap()
 {
+    
         for (int row = 0; row < ROW; row++)
         {
             cout << "\t";
