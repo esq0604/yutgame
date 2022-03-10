@@ -1,11 +1,11 @@
 #include "Horse.h"
 
-Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_POS(99), ON_TWO_HORSE(2)
+Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_ROW_POS(21), OUT_COL_POS(20), ON_TWO_HORSE(2)
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
 	//horseState로 판별하여 if문에서 넣어도 될듯?
-	currentRowPos = OUT_POS;
-	currentColPos = OUT_POS;
+	currentRowPos = OUT_ROW_POS;
+	currentColPos = OUT_COL_POS;
 	firstShortRoad = false;
 	secondShortRoad = false;
 	centerShortRoad = false;
@@ -21,45 +21,51 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 	switch (yutCount)
 	{
 	case 0:
-		if (currentColPos == OUT_POS && currentRowPos == OUT_POS)
+		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
 		{
-			map.MAP[5][20] = ON_HORSE;
-			SetHorsePos(5, 20);
+			/*map.MAP[5][20] = ON_HORSE;
+			SetHorsePos(5, 20);*/
+			MoveHorse(map, currentRowPos, currentColPos, 4);
 		}
-		MoveHorse(map, currentRowPos, currentColPos,4);
+		//MoveHorse(map, currentRowPos, currentColPos,4);
 		break;
 	case 1:
-		if (currentColPos == OUT_POS && currentRowPos == OUT_POS)
+		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
 		{
-			map.MAP[20][20] = ON_HORSE;
-			SetHorsePos(20, 20);
+			/*map.MAP[20][20] = ON_HORSE;
+			SetHorsePos(20, 20);*/
+			MoveHorse(map, currentRowPos, currentColPos, 1);
 		}
-		MoveHorse(map, currentRowPos, currentColPos, 1);
+		//MoveHorse(map, currentRowPos, currentColPos, 1);
 		break;
 	case 2:
-		if (currentColPos == OUT_POS && currentRowPos == OUT_POS)
+		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
 		{
-			map.MAP[15][20] = ON_HORSE;
-			SetHorsePos(15, 20);
+			/*map.MAP[15][20] = ON_HORSE;
+			SetHorsePos(15, 20);*/
+			MoveHorse(map, currentRowPos, currentColPos, 2);
 		}
-		MoveHorse(map, currentRowPos, currentColPos, 2);
+		//MoveHorse(map, currentRowPos, currentColPos, 2);
 		break;
 	case 3:
 
-		if (currentColPos == OUT_POS && currentRowPos == OUT_POS)
+		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
 		{
-			map.MAP[10][20] = ON_HORSE;
-			SetHorsePos(10, 20);
+			/*map.MAP[10][20] = ON_HORSE;
+			SetHorsePos(10, 20);*/
+			MoveHorse(map, currentRowPos, currentColPos, 3);
 		}
-		MoveHorse(map, currentRowPos, currentColPos, 3);
+		//MoveHorse(map, currentRowPos, currentColPos, 3);
 			break;
 	case 4:
-		if (currentColPos == OUT_POS && currentRowPos == OUT_POS)
+		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
 		{
-			map.MAP[5][20] = ON_HORSE;
-			SetHorsePos(5, 20);
+			/*map.MAP[5][20] = ON_HORSE;
+			SetHorsePos(5, 20);*/
+			MoveHorse(map, currentRowPos, currentColPos, 4);
+
 		}
-		MoveHorse(map, currentRowPos, currentColPos, 4);
+		//MoveHorse(map, currentRowPos, currentColPos, 4);
 		break;
 	}
 	util.SetCursurPoint(0, 0);
@@ -67,15 +73,15 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 }
 void Horse::SetHorsePos(int row, int col)
 {
-	currentRowPos = row;
-	currentColPos = col;
+	this->currentRowPos = row;
+	this->currentColPos = col;
 }
 
 void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTime)
 {
 	
 	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
-	if (currentColPos == MAX_POS && (currentRowPos <= MAX_POS || currentRowPos >= MIN_POS)&& nomalRoad)
+	if ((currentColPos == MAX_POS && (currentRowPos <= MAX_POS )
 	{
 		map.MAP[currentRowPos][currentColPos] = OFF_HORSE;
 		for (int i = 0; i < loopTime; i++)
@@ -85,8 +91,7 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			else
 				currentColPos -= MOVE_HORSE;
 		}
-		//map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-		CheckHorseNumOnPos(map);
+
 		//말을 옮긴 뒤 위치체크 
 		if (currentRowPos == 0 && currentColPos == MAX_POS)
 		{
@@ -94,6 +99,10 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			nomalRoad = false;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
+		if (map.MAP[currentRowPos][currentColPos] > 0)
+			CheckHorseNumOnPos(map);
+		else
+			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
 	else if (currentRowPos == MIN_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS) && nomalRoad)
@@ -106,14 +115,17 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			else
 				currentRowPos += MOVE_HORSE;
 		}
-		//map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-		CheckHorseNumOnPos(map);
+
 		if (currentRowPos == MIN_POS && currentColPos == MIN_POS)
 		{
 			secondShortRoad = true;
 			nomalRoad = false;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
+		if (map.MAP[currentRowPos][currentColPos] > 0)
+			CheckHorseNumOnPos(map);
+		else
+			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
 	else if (currentColPos == MIN_POS && (currentRowPos <= MAX_POS || currentRowPos >= MIN_POS)&& nomalRoad)
@@ -126,9 +138,12 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			else
 				currentColPos += MOVE_HORSE;
 		}
-		//map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-		CheckHorseNumOnPos(map);
+
 		SetHorsePos(currentRowPos, currentColPos);
+		if (map.MAP[currentRowPos][currentColPos] > 0)
+			CheckHorseNumOnPos(map);
+		else
+			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
 	else if (currentRowPos == MAX_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS)&& nomalRoad)
@@ -139,9 +154,11 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			if (currentColPos < MAX_POS)
 				currentColPos += MOVE_HORSE;
 		}
-		//map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-		CheckHorseNumOnPos(map);
 		SetHorsePos(currentRowPos, currentColPos);
+		if (map.MAP[currentRowPos][currentColPos] > 0)
+			CheckHorseNumOnPos(map);
+		else
+			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 }
 
@@ -231,11 +248,11 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 }
 void Horse::CheckHorseNumOnPos(Map& map)
 {
-	if (map.MAP[currentRowPos][currentColPos] == OFF_HORSE)
+	/*if (map.MAP[currentRowPos][currentColPos] == OFF_HORSE)
 	{
 		map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-	}
-	else if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+	}*/
+	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
 	{
 		map.MAP[currentRowPos][currentColPos]++;
 	}

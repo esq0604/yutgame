@@ -12,7 +12,8 @@ private:
 	const int MAX_POS;
 	const int MIN_POS;
 	const int CENTER_POS;
-	const int OUT_POS;
+	const int OUT_ROW_POS;
+	const int OUT_COL_POS;
 	
 public:
 	Map map;
