@@ -3,9 +3,16 @@
 #include<iostream>
 #include<array>
 #include<random>
+#include<conio.h>
 #include "Map.h"
 #include"Horse.h"
+#include "Util.h"
 
+enum eKEY
+{
+	KEY_LEFT = 75,
+	KEY_RIGHT = 77,
+};
 using namespace std;
 class Player 
 {
@@ -20,6 +27,7 @@ public:
 	string yutPrint;
 	array<int, 5> yutState;
 	Map map;
+	Util util;
 	Horse horse[3];
 public:
 	Player();
@@ -27,7 +35,7 @@ public:
 	void GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
-	void SelectHorse();
+	void SelectHorse(Horse horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
 };

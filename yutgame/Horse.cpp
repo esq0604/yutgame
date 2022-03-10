@@ -130,25 +130,6 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 	}
 }
 
-//void Horse::SetShortRoad(int currentRowPos, int currentColPos)
-//{
-//	//(0,20)일때
-//	if (currentRowPos == 0 && currentColPos == 20) 
-//	{
-//		firstShortRoad = true;
-//		
-//	}
-//	//(0,0)일때
-//	else if (currentRowPos == 0 && currentColPos == 0)
-//	{
-//		secondShortRoad = true;
-//	
-//	}
-//	else if (currentRowPos == 10 && currentColPos == 10)
-//	{
-//		centerShortRoad = true;
-//	}
-//}
 void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
 {
 	if (firstShortRoad)
@@ -216,10 +197,7 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 }
 void Horse::CheckHorseNumOnPos(Map& map)
 {
-	/*if (map.MAP[currentRowPos][currentColPos] == OFF_HORSE)
-	{
-		map.MAP[currentRowPos][currentColPos] = ON_HORSE;
-	}*/
+	
 	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
 	{
 		map.MAP[currentRowPos][currentColPos]++;
@@ -231,7 +209,5 @@ void Horse::CheckHorseNumOnPos(Map& map)
 
 }
 
-
-	//말은 자기가 움직일 곳밖에 모른다 , 같은 포지션에 말이 몇개 있는지는 플레이어가 생각해야할거같다.
 
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??

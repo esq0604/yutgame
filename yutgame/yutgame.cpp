@@ -63,6 +63,7 @@ int main()
         
  
         cout << endl;
+        util.SetCursurPoint(48, 21);
         Sleep(2000);
        
     }

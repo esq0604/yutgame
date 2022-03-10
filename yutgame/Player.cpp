@@ -55,10 +55,21 @@ void Player::SetPlayerName()
 }
 
 
-void Player::SelectHorse()
+void Player::SelectHorse(Horse horse)
 {
-
+	char keySelect;
 	cout << "움직일 말을 선택하세요";
+	
+	keySelect = _getch();
+	switch (keySelect)
+	{
+	case KEY_LEFT:
+		util.SetCursurPoint(1, 2);
+		break;
+	case KEY_RIGHT:
+		util.SetCursurPoint(1, 2);
+		break;
+	}
 }
 int Player::GetRandomNumber()
 {
