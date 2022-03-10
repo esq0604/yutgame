@@ -1,6 +1,6 @@
 #include "Horse.h"
 
-Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_ROW_POS(21), OUT_COL_POS(20), ON_TWO_HORSE(2)
+Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_ROW_POS(25), OUT_COL_POS(20), ON_TWO_HORSE(2)
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
 	//horseState로 판별하여 if문에서 넣어도 될듯?
@@ -21,51 +21,19 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 	switch (yutCount)
 	{
 	case 0:
-		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
-		{
-			/*map.MAP[5][20] = ON_HORSE;
-			SetHorsePos(5, 20);*/
-			MoveHorse(map, currentRowPos, currentColPos, 4);
-		}
-		//MoveHorse(map, currentRowPos, currentColPos,4);
+		MoveHorse(map, currentRowPos, currentColPos, 4);
 		break;
 	case 1:
-		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
-		{
-			/*map.MAP[20][20] = ON_HORSE;
-			SetHorsePos(20, 20);*/
-			MoveHorse(map, currentRowPos, currentColPos, 1);
-		}
-		//MoveHorse(map, currentRowPos, currentColPos, 1);
+		MoveHorse(map, currentRowPos, currentColPos, 1);
 		break;
 	case 2:
-		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
-		{
-			/*map.MAP[15][20] = ON_HORSE;
-			SetHorsePos(15, 20);*/
-			MoveHorse(map, currentRowPos, currentColPos, 2);
-		}
-		//MoveHorse(map, currentRowPos, currentColPos, 2);
+		MoveHorse(map, currentRowPos, currentColPos, 2);
 		break;
 	case 3:
-
-		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
-		{
-			/*map.MAP[10][20] = ON_HORSE;
-			SetHorsePos(10, 20);*/
-			MoveHorse(map, currentRowPos, currentColPos, 3);
-		}
-		//MoveHorse(map, currentRowPos, currentColPos, 3);
-			break;
+		MoveHorse(map, currentRowPos, currentColPos, 3);
+		break;
 	case 4:
-		if (currentColPos == OUT_COL_POS && currentRowPos == OUT_COL_POS)
-		{
-			/*map.MAP[5][20] = ON_HORSE;
-			SetHorsePos(5, 20);*/
-			MoveHorse(map, currentRowPos, currentColPos, 4);
-
-		}
-		//MoveHorse(map, currentRowPos, currentColPos, 4);
+		MoveHorse(map, currentRowPos, currentColPos, 4);
 		break;
 	}
 	util.SetCursurPoint(0, 0);
@@ -81,12 +49,12 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 {
 	
 	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
-	if ((currentColPos == MAX_POS && (currentRowPos <= MAX_POS )
+	if (((currentColPos == MAX_POS) && (currentRowPos <= MAX_POS ))||(currentColPos==OUT_COL_POS)&&(currentRowPos==OUT_ROW_POS))
 	{
 		map.MAP[currentRowPos][currentColPos] = OFF_HORSE;
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentRowPos > MIN_POS)
+			if ((currentRowPos > MIN_POS)||currentColPos==OUT_COL_POS)
 				currentRowPos -= MOVE_HORSE;
 			else
 				currentColPos -= MOVE_HORSE;

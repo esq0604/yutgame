@@ -2,7 +2,7 @@
 #include<iostream>
 #include<windows.h>
 #define COL 21
-#define ROW 22
+#define ROW 26
 using namespace std;
 class Map
 {

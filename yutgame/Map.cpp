@@ -6,7 +6,7 @@ void Map::DrawMap()
             cout << "\t";
             for (int col = 0; col < COL; col++)
             {
-                if ((row == 0 || col == 0 || row == 20 || col == 20) && (row % 5 == 0) && (col % 5 == 0))
+                if ((row == 0 || col == 0 || row == 20 || col == 20) && (row % 5 == 0&&row<25) && (col % 5 == 0))
                     cout << MAP[row][col] << " ";
                 else if ((row % 5 == 0 || col % 5 == 0) && (row == col) || (col * row == 75))
                     cout << MAP[row][col] << " ";
