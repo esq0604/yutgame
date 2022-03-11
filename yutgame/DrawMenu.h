@@ -24,5 +24,7 @@ public:
 	void EnterInputCommand();
 	void OnHorseQuestion(Player& player);
 	void DrawShortRoadSelect(Horse& horse);
+	void DrawPlayerHaveHorse(Player* player);
+	void DrawInputPlayerName(Player* player);
 
 };

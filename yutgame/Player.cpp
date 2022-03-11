@@ -42,6 +42,7 @@ void Player::ThrowYut(Map& map)
 void Player::CreateHorse()
 {
 	haveHolseCount--;
+	currentHorseIdx--;
 
 }
 int Player::GetHorseCount()

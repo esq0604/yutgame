@@ -20,18 +20,10 @@ int main()
 
     //util.TextColor(BLUE,LIGHTGRAY);
     drawMenu.DrawMainScreen();
-
     drawMenu.DrawNamingScreen();
-    
-    for (int i = 1; i < 3; i++)
-    {   
-        cout << "\t\t\t플레이어 " << i << "이름을 입력하세요: ";
-        player[i].SetPlayerName();
-    }
-    
+    drawMenu.DrawInputPlayerName(player);
     drawMenu.DrawStartScreen();
     system("cls");
-
 
     while (true)
     {
@@ -40,12 +32,7 @@ int main()
         char yutThw;
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
-        util.SetCursurPoint(0, 25);
-        cout << "플레이어 1 보유 말의 수 "<< player[1].GetHorseCount();
-        util.SetCursurPoint(0, 27);
-        cout << "플레이어 2 보유 말의 수 ";
-         player[2].GetHorseCount();
-        util.SetCursurPoint(60,10);
+        drawMenu.DrawPlayerHaveHorse(player);
         cin >> yutThw;
         if(yutThw == 'T')
         {

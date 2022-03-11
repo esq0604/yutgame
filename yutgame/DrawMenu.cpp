@@ -144,7 +144,6 @@ void DrawMenu::OnHorseQuestion(Player& player)
         cin >> horseOnState;
         if (horseOnState == 'y')
         {
-            player.currentHorseIdx--;
             player.CreateHorse();
         }
         else if (horseOnState == 'n')
@@ -171,7 +170,24 @@ void DrawMenu::OnHorseQuestion(Player& player)
 //
 //
 //}
+void DrawMenu::DrawPlayerHaveHorse(Player* player)
+{
+  
+    util.SetCursurPoint(0, 25);
+    cout << "플레이어 " << 1 << "보유 말의 수 " << (player + 1)->GetHorseCount();
+    util.SetCursurPoint(0, 27);
+    cout << "플레이어 " << 2 << "보유 말의 수 " << (player + 2)->GetHorseCount();
+    //입력칸을 위해 커서위치를 바꿔놈 
+    util.SetCursurPoint(60, 10);
+}
 
-
+void DrawMenu::DrawInputPlayerName(Player* player)
+{
+    for (int i = 1; i < 3; i++)
+    {
+        cout << "\t\t\t플레이어 " << i << "이름을 입력하세요: ";
+        player[i].SetPlayerName();
+    }
+}
 
 
