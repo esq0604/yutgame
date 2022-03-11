@@ -41,8 +41,7 @@ int main()
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
         util.SetCursurPoint(0, 25);
-        cout << "플레이어 1 보유 말의 수 ";
-         player[1].GetHorseCount();
+        cout << "플레이어 1 보유 말의 수 "<< player[1].GetHorseCount();
         util.SetCursurPoint(0, 27);
         cout << "플레이어 2 보유 말의 수 ";
          player[2].GetHorseCount();
@@ -50,7 +49,7 @@ int main()
         cin >> yutThw;
         if(yutThw == 'T')
         {
-            if(player[1].haveHolseCount-1>0)
+            if(player[1].haveHolseCount>0)
             drawMenu.OnHorseQuestion(player[1]);
             util.SetCursurPoint(60 ,12);
             cout << "플레이어 " << "의 결과  ";

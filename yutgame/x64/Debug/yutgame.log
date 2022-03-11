@@ -1,11 +1,2 @@
-﻿  Horse.cpp
-  DrawMenu.cpp
-  Map.cpp
-  Player.cpp
-  PlayGame.cpp
-  Util.cpp
-C:\Users\Administrator\Desktop\코딩\yutgame\yutgame\Util.cpp(10,16): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\Administrator\Desktop\코딩\yutgame\yutgame\Util.cpp(10,20): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-  yutgame.cpp
-  코드를 생성하고 있습니다...
-  yutgame.vcxproj -> C:\Users\Administrator\Desktop\코딩\yutgame\x64\Debug\yutgame.exe
+﻿  yutgame.cpp
+  yutgame.vcxproj -> C:\Users\dltkd\yutgame\x64\Debug\yutgame.exe

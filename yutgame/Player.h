@@ -26,13 +26,13 @@ private:
 	const int CURSOR_POINT_ROWNUM;
 public:
 	string playerName;
+	string yutPrint;
 	int playerPosition[21][21];
 	int throwCount;
 	int haveHolseCount;
 	int yutCount;
 	int currentHorseIdx;
 	int selectHorseIdx;
-	string yutPrint;
 	array<int, 5> yutState;
 	Map map;
 	Util util;
@@ -40,11 +40,12 @@ public:
 public:
 	Player();
 	void ThrowYut(Map& map);
-	void GetHorseCount();
+	int GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
-	void SelectHorse(Horse *horse);
+	void SelectHorse();
 	void SelectHorseCurssor(Horse *horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
+	void CheckHorseInMap(Map &map);
 };

@@ -7,7 +7,7 @@ Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CUR
 	throwCount = 1;
 	yutCount = 0;
 	yutPrint = ' ';
-	haveHolseCount = 4;
+	haveHolseCount = 3;
 	currentHorseIdx = 3;
 }
 
@@ -30,6 +30,7 @@ void Player::ThrowYut(Map& map)
 			cout << yutState[i] << " ";
 		}
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
+		//SelectHorse();
 		horse[currentHorseIdx].MoveHorseSystem(yutCount,map,horse[currentHorseIdx].currentRowPos,horse[currentHorseIdx].currentColPos);
 		yutCount = 0;
 	
@@ -41,9 +42,9 @@ void Player::CreateHorse()
 	haveHolseCount--;
 
 }
-void Player::GetHorseCount()
+int Player::GetHorseCount()
 {
-	cout<<haveHolseCount;
+	return haveHolseCount;
 }
 
 
@@ -55,7 +56,7 @@ void Player::SetPlayerName()
 }
 
 
-void Player::SelectHorse(Horse *horse)
+void Player::SelectHorse()
 {
 	char keySelect;
 	bool t=true;
@@ -73,7 +74,7 @@ void Player::SelectHorse(Horse *horse)
 				selectHorseIdx = MAX_HORSE_IDX;
 				SelectHorseCurssor(horse + selectHorseIdx);
 			}
-			//util.SetCursurPoint(1, 2);
+			currentHorseIdx = selectHorseIdx;
 			break;
 		case KEY_RIGHT:
 			selectHorseIdx++;
@@ -82,7 +83,6 @@ void Player::SelectHorse(Horse *horse)
 				selectHorseIdx = MIN_HORSE_IDX;
 				SelectHorseCurssor(horse + selectHorseIdx);
 			}
-			//util.SetCursurPoint(1, 2);
 			break;
 		case KEY_ENTER:
 			t = false;
@@ -99,7 +99,16 @@ void Player::SelectHorseCurssor(Horse* horse)
 	{
 		util.SetCursurPoint(horse->currentRowPos + CURSOR_POINT_ROWNUM, CURSOR_POINT_COLNUM);
 	}
+	else if ((horse->currentRowPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS)&&(horse->currentColPos==MIN_HORSE_POS))
+	{
+		util.SetCursurPoint(1, 2);
+	}
+	else if ((horse->currentColPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS) && (horse->currentRowPos == MAX_HORSE_POS))
+	{
+		util.SetCursurPoint(3, 4);
+	}
 }
+
 int Player::GetRandomNumber()
 {
 	random_device rd;
@@ -132,6 +141,12 @@ string Player::GetYutCount(int yutCount)
 	}
 	return yutPrint;
 
+}
+
+void Player::CheckHorseInMap(Map &map)
+{
+	//맵에 말이 몇개 올라가있는지 체크를 하려면..
+	haveHolseCount;
 }
 
 

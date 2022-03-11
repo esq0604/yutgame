@@ -138,21 +138,21 @@ void DrawMenu::OnHorseQuestion(Player& player)
 {
     char horseOnState;
     //어느말을 올릴지 알려주는것도 좋을듯 
-    if (player.haveHolseCount > 0)
+    if (player.haveHolseCount >= 0)
     {
         cout << "말을 올리겠습니까? (y/n)";
         cin >> horseOnState;
         if (horseOnState == 'y')
         {
             player.currentHorseIdx--;
-            player.haveHolseCount--;
+            player.CreateHorse();
         }
         else if (horseOnState == 'n')
         {
 
         }
     }
-    else if (player.haveHolseCount <= 0)
+    else if (player.haveHolseCount < 0)
     {
         cout << "말이 더이상 없습니다";
     }
