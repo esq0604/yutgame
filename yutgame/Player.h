@@ -24,6 +24,9 @@ private:
 	const int MIN_HORSE_POS;
 	const int CURSOR_POINT_COLNUM;
 	const int CURSOR_POINT_ROWNUM;
+	const int ON_ONE_HORSE;
+	const int ON_TWO_HORSE;
+	const int ON_THREE_HORSE;
 public:
 	string playerName;
 	string yutPrint;
@@ -33,6 +36,7 @@ public:
 	int yutCount;
 	int currentHorseIdx;
 	int selectHorseIdx;
+	int samePosHorseNum;
 	array<int, 5> yutState;
 	Map map;
 	Util util;
@@ -47,5 +51,5 @@ public:
 	void SelectHorseCurssor(Horse *horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
-	void CheckHorseInMap(Map &map);
+	int CheckHorseInSamePos(Map &map,Horse horse);
 };

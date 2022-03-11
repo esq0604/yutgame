@@ -1,7 +1,8 @@
 //클래스 구현부 
 #include "Player.h"
-Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0)
+Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0), ON_ONE_HORSE(1), ON_TWO_HORSE(2), ON_THREE_HORSE(3)
 {
+
 	playerPosition[0][0] = 0;
 	yutState = { 0};
 	throwCount = 1;
@@ -9,6 +10,7 @@ Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CUR
 	yutPrint = ' ';
 	haveHolseCount = 3;
 	currentHorseIdx = 3;
+	samePosHorseNum = 1;
 }
 
 void Player::ThrowYut(Map& map)
@@ -142,11 +144,24 @@ string Player::GetYutCount(int yutCount)
 	return yutPrint;
 
 }
-
-void Player::CheckHorseInMap(Map &map)
+//체크하는 함수를 만들고, 맵에서 이 함수를 쓰면 각 객체가 
+int Player::CheckHorseInSamePos(Map &map,Horse horse)
 {
 	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-	haveHolseCount;
+	if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
+	{
+		samePosHorseNum = ON_ONE_HORSE;
+	}
+	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_TWO_HORSE)
+	{
+		samePosHorseNum = ON_TWO_HORSE;
+	}
+	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_THREE_HORSE)
+	{
+		samePosHorseNum = ON_THREE_HORSE;
+	}
+
+	return samePosHorseNum;
 }
 
 

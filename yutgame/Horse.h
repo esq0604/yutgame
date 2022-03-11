@@ -26,6 +26,7 @@ public:
 	bool nomalRoad;
 	bool horseOnState;
 	int currentRowPos,currentColPos;
+	int horseNum;
 
 public:
 	Horse();
@@ -35,4 +36,5 @@ public:
 	//void SetShortRoad(int currentRowPos, int currentColPos);
 	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void CheckHorseNumOnPos(Map& map);
+	
 };
