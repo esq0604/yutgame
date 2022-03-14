@@ -27,29 +27,32 @@ private:
 	const int ON_ONE_HORSE;
 	const int ON_TWO_HORSE;
 	const int ON_THREE_HORSE;
-public:
-	string playerName;
-	string yutPrint;
-	int playerPosition[21][21];
 	int throwCount;
-	int haveHolseCount;
 	int yutCount;
 	int currentHorseIdx;
 	int selectHorseIdx;
 	int samePosHorseNum;
 	array<int, 5> yutState;
+	string playerName;
+	string yutPrint;
 	Map map;
 	Util util;
 	Horse horse[3];
+	//int playerPosition[21][21];
+	void SelectHorse();
+	void SelectHorseCurssor(Horse* horse);
+	string GetYutCount(int yutCount);
+	int GetRandomNumber();
+	int GetHorseInSamePos(Map& map, Horse horse);
+
+public:
+	int haveHolseCount;
+
 public:
 	Player();
 	void ThrowYut(Map& map);
 	int GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
-	void SelectHorse();
-	void SelectHorseCurssor(Horse *horse);
-	string GetYutCount(int yutCount);
-	int GetRandomNumber();
-	int CheckHorseInSamePos(Map &map,Horse horse);
+
 };

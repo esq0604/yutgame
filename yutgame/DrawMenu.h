@@ -6,25 +6,27 @@
 using namespace std;
 class DrawMenu 
 {
-public:
+private:
 	Player player;
 	Horse horse;
 	Util util;
 	char helpMessageOut;
 	char inputCommand;
 	char inputShortRoad;
+	void DrawHelpMessage();
+	void DrawInputCommand();
+	void EnterInputHelpMessage();
+	void EnterInputCommand();
+	void DrawShortRoadSelect(Horse& horse);
+
+
 public:
 	void DrawMainScreen();
 	void DrawNamingScreen();
 	void DrawStartScreen();
-	void DrawHelpMessage();
-	void DrawInputCommand();
-	void DrawHelpMessageInGame();
-	void EnterInputHelpMessage();
-	void EnterInputCommand();
-	void OnHorseQuestion(Player& player);
-	void DrawShortRoadSelect(Horse& horse);
-	void DrawPlayerHaveHorse(Player* player);
 	void DrawInputPlayerName(Player* player);
+	void DrawPlayerHaveHorse(Player* player);
+	void OnHorseQuestion(Player& player);
+	void DrawHelpMessageInGame();
 
 };
