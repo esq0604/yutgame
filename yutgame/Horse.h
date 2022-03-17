@@ -1,7 +1,8 @@
 #pragma once
+class Player;
 #include"Map.h"
 #include"Util.h"
-//#include"Player.h"
+
 //#include"DrawMenu.h"
 class Horse
 {
@@ -23,15 +24,14 @@ private:
 	int horseNum;
 	Map map;
 	Util util;
-
+	Player* player;
 	void SetHorsePos(int row, int col);
 	void MoveHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 public:
 	int currentRowPos,currentColPos;
-	
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
-	void CheckHorseNumOnPos(Map& map);
+	//void CheckHorseNumOnPos(Map& map);
 	Horse();
 
 };

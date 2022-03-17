@@ -1,12 +1,13 @@
 #pragma once
+class Horse;
 #include<string>
 #include<iostream>
 #include<array>
 #include<random>
 #include<conio.h>
 #include "Map.h"
-#include"Horse.h"
 #include "Util.h"
+
 
 enum eKEY
 {
@@ -37,10 +38,10 @@ private:
 	string yutPrint;
 	Map map;
 	Util util;
-	Horse horse[3];
+	Horse* horse;
 	//int playerPosition[21][21];
-	void SelectHorse();
-	void SelectHorseCurssor(Horse* horse);
+	//void SelectHorse();
+	//void SelectHorseCurssor(Horse* horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
 	int GetHorseInSamePos(Map& map, Horse horse);

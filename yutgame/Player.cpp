@@ -1,5 +1,6 @@
 //클래스 구현부 
 #include "Player.h"
+#include "Horse.h"
 Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0), ON_ONE_HORSE(1), ON_TWO_HORSE(2), ON_THREE_HORSE(3)
 {
 	//playerPosition[0][0] = 0;
@@ -10,6 +11,9 @@ Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CUR
 	haveHolseCount = 3;
 	currentHorseIdx = 3;
 	samePosHorseNum = 1;
+	horse = new Horse;
+		
+
 }
 
 void Player::ThrowYut(Map& map)
@@ -32,7 +36,8 @@ void Player::ThrowYut(Map& map)
 		}
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
 		//SelectHorse();
-		horse[currentHorseIdx].MoveHorseSystem(yutCount,map,horse[currentHorseIdx].currentRowPos,horse[currentHorseIdx].currentColPos);
+		
+		horse->MoveHorseSystem(yutCount, map, horse/*[currentHorseIdx  ]*/->currentRowPos, horse/*[currentHorseIdx  ]*/->currentColPos);
 		yutCount = 0;
 	
 		
@@ -58,58 +63,58 @@ void Player::SetPlayerName()
 }
 
 
-void Player::SelectHorse()
-{
-	char keySelect;
-	bool t=true;
-	selectHorseIdx = currentHorseIdx;
-	cout << "움직일 말을 선택하세요 (<-/->), Enter";
-	keySelect = _getch();
-	while (t)
-	{
-		switch (keySelect)
-		{
-		case KEY_LEFT:
-			selectHorseIdx--;
-			if (selectHorseIdx < MIN_HORSE_IDX)
-			{
-				selectHorseIdx = MAX_HORSE_IDX;
-				SelectHorseCurssor(horse + selectHorseIdx);
-			}
-			currentHorseIdx = selectHorseIdx;
-			break;
-		case KEY_RIGHT:
-			selectHorseIdx++;
-			if (selectHorseIdx > MAX_HORSE_IDX)
-			{
-				selectHorseIdx = MIN_HORSE_IDX;
-				SelectHorseCurssor(horse + selectHorseIdx);
-			}
-			break;
-		case KEY_ENTER:
-			t = false;
-		}
-	}
-}
-void Player::SelectHorseCurssor(Horse* horse)
-{
-	if (horse->currentColPos == MAX_HORSE_POS && horse->currentRowPos <= MAX_HORSE_POS)
-	{
-		util.SetCursurPoint(48, horse->currentColPos + CURSOR_POINT_COLNUM);
-	}
-	else if (horse->currentColPos <= MAX_HORSE_POS && horse->currentRowPos == MIN_HORSE_POS)
-	{
-		util.SetCursurPoint(horse->currentRowPos + CURSOR_POINT_ROWNUM, CURSOR_POINT_COLNUM);
-	}
-	else if ((horse->currentRowPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS)&&(horse->currentColPos==MIN_HORSE_POS))
-	{
-		util.SetCursurPoint(1, 2);
-	}
-	else if ((horse->currentColPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS) && (horse->currentRowPos == MAX_HORSE_POS))
-	{
-		util.SetCursurPoint(3, 4);
-	}
-}
+//void Player::SelectHorse()
+//{
+//	char keySelect;
+//	bool t=true;
+//	selectHorseIdx = currentHorseIdx;
+//	cout << "움직일 말을 선택하세요 (<-/->), Enter";
+//	keySelect = _getch();
+//	while (t)
+//	{
+//		switch (keySelect)
+//		{
+//		case KEY_LEFT:
+//			selectHorseIdx--;
+//			if (selectHorseIdx < MIN_HORSE_IDX)
+//			{
+//				selectHorseIdx = MAX_HORSE_IDX;
+//				SelectHorseCurssor(horse + selectHorseIdx);
+//			}
+//			currentHorseIdx = selectHorseIdx;
+//			break;
+//		case KEY_RIGHT:
+//			selectHorseIdx++;
+//			if (selectHorseIdx > MAX_HORSE_IDX)
+//			{
+//				selectHorseIdx = MIN_HORSE_IDX;
+//				SelectHorseCurssor(horse + selectHorseIdx);
+//			}
+//			break;
+//		case KEY_ENTER:
+//			t = false;
+//		}
+//	}
+//}
+//void Player::SelectHorseCurssor(Horse* horse)
+//{
+//	if (horse->currentColPos == MAX_HORSE_POS && horse->currentRowPos <= MAX_HORSE_POS)
+//	{
+//		util.SetCursurPoint(48, horse->currentColPos + CURSOR_POINT_COLNUM);
+//	}
+//	else if (horse->currentColPos <= MAX_HORSE_POS && horse->currentRowPos == MIN_HORSE_POS)
+//	{
+//		util.SetCursurPoint(horse->currentRowPos + CURSOR_POINT_ROWNUM, CURSOR_POINT_COLNUM);
+//	}
+//	else if ((horse->currentRowPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS)&&(horse->currentColPos==MIN_HORSE_POS))
+//	{
+//		util.SetCursurPoint(1, 2);
+//	}
+//	else if ((horse->currentColPos <= MAX_HORSE_POS || horse->currentRowPos >= MIN_HORSE_POS) && (horse->currentRowPos == MAX_HORSE_POS))
+//	{
+//		util.SetCursurPoint(3, 4);
+//	}
+//}
 
 int Player::GetRandomNumber()
 {

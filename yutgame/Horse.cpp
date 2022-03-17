@@ -67,9 +67,9 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			nomalRoad = false;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-		if (map.MAP[currentRowPos][currentColPos] > 0)
+		/*if (map.MAP[currentRowPos][currentColPos] > 0)
 			CheckHorseNumOnPos(map);
-		else
+		else*/
 			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
@@ -90,9 +90,9 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 			nomalRoad = false;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-		if (map.MAP[currentRowPos][currentColPos] > 0)
+		/*if (map.MAP[currentRowPos][currentColPos] > 0)
 			CheckHorseNumOnPos(map);
-		else
+		else*/
 			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
@@ -108,9 +108,9 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 		}
 
 		SetHorsePos(currentRowPos, currentColPos);
-		if (map.MAP[currentRowPos][currentColPos] > 0)
+		/*if (map.MAP[currentRowPos][currentColPos] > 0)
 			CheckHorseNumOnPos(map);
-		else
+		else*/
 			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 
@@ -123,9 +123,9 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 				currentColPos += MOVE_HORSE;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-		if (map.MAP[currentRowPos][currentColPos] > 0)
+		/*if (map.MAP[currentRowPos][currentColPos] > 0)
 			CheckHorseNumOnPos(map);
-		else
+		else*/
 			map.MAP[currentRowPos][currentColPos] = ON_HORSE;
 	}
 }
@@ -195,19 +195,19 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		SetHorsePos(currentRowPos, currentColPos);
 	}
 }
-void Horse::CheckHorseNumOnPos(Map& map)
-{
-	
-	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
-	{
-		map.MAP[currentRowPos][currentColPos]++;
-	}
-	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
-	{
-		map.MAP[currentRowPos][currentColPos]++;
-	}
-
-}
+//void Horse::CheckHorseNumOnPos(Map& map)
+//{
+//	
+//	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+//	{
+//		map.MAP[currentRowPos][currentColPos]++;
+//	}
+//	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
+//	{
+//		map.MAP[currentRowPos][currentColPos]++;
+//	}
+//
+//}
 
 
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??
