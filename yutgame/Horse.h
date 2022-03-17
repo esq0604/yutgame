@@ -2,7 +2,6 @@
 class Player;
 #include"Map.h"
 #include"Util.h"
-
 //#include"DrawMenu.h"
 class Horse
 {
@@ -21,10 +20,11 @@ private:
 	bool centerShortRoad;
 	bool nomalRoad;
 	bool horseInMap = false;
-	int horseNum;
+	//int horseNum;
 	Map map;
 	Util util;
 	Player* player;
+	//DrawMenu menu;
 	void SetHorsePos(int row, int col);
 	void MoveHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);

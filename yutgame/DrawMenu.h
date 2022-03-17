@@ -17,7 +17,7 @@ private:
 	void DrawInputCommand();
 	void EnterInputHelpMessage();
 	void EnterInputCommand();
-	void DrawShortRoadSelect(Horse& horse);
+	bool GetShortRoadSelect();
 
 
 public:

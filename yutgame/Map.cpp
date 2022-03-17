@@ -17,7 +17,15 @@ void Map::DrawMap()
             }
             cout << endl;
         }
-
+        /*for (int i = 0; i < ROW; i++)
+        {
+            cout << " ";
+            for (int j = 0; j < COL; j++)
+            {
+                cout << MAP[i][j] << " ";
+            }
+            cout << endl;
+        }*/
         //getchar();
         //system("cls");
 }

@@ -159,17 +159,17 @@ void DrawMenu::OnHorseQuestion(Player& player)
 
 }
 
-//void DrawMenu::DrawShortRoadSelect(Horse& horse)
-//{
-//    cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
-//    cin >> inputShortRoad;
-//    if (inputShortRoad == 'y')
-//        horse.
-//    else if (inputShortRoad == 'n')
-//        return false;
-//
-//
-//}
+bool DrawMenu::GetShortRoadSelect()
+{
+    cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
+    cin >> inputShortRoad;
+    if (inputShortRoad == 'y')
+        return true;
+    else if (inputShortRoad == 'n')
+        return false;
+
+
+}
 void DrawMenu::DrawPlayerHaveHorse(Player* player)
 {
   

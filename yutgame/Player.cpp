@@ -11,8 +11,11 @@ Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CUR
 	haveHolseCount = 3;
 	currentHorseIdx = 3;
 	samePosHorseNum = 1;
-	horse = new Horse;
-		
+	//horse = new Horse;
+	for (int i = 0; i < 3; i++)
+	{
+		horse[i] = new Horse;
+	}
 
 }
 
@@ -37,7 +40,7 @@ void Player::ThrowYut(Map& map)
 		cout << "µÚÁýÈù À·ÀÇ ¼ö " << yutCount << " " << GetYutCount(yutCount);
 		//SelectHorse();
 		
-		horse->MoveHorseSystem(yutCount, map, horse/*[currentHorseIdx  ]*/->currentRowPos, horse/*[currentHorseIdx  ]*/->currentColPos);
+		horse[currentHorseIdx]->MoveHorseSystem(yutCount, map, horse[currentHorseIdx]->currentRowPos, horse[currentHorseIdx]->currentColPos);
 		yutCount = 0;
 	
 		
@@ -143,7 +146,7 @@ string Player::GetYutCount(int yutCount)
 		yutPrint = "°É";
 		break;
 	case 4:
-		yutPrint = "À·";
+		yutPrint = " À·";
 		break;
 	}
 	return yutPrint;

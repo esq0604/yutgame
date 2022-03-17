@@ -2,4 +2,5 @@
   Player.cpp
   yutgame.cpp
   Generating Code...
+C:\Users\dltkd\yutgame\yutgame\DrawMenu.cpp(172): warning C4715: 'DrawMenu::GetShortRoadSelect': not all control paths return a value
   yutgame.vcxproj -> C:\Users\dltkd\yutgame\x64\Debug\yutgame.exe

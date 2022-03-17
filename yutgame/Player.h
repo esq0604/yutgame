@@ -38,7 +38,7 @@ private:
 	string yutPrint;
 	Map map;
 	Util util;
-	Horse* horse;
+	Horse* horse[3];
 	//int playerPosition[21][21];
 	//void SelectHorse();
 	//void SelectHorseCurssor(Horse* horse);

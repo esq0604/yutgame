@@ -37,7 +37,7 @@ int main()
         if(yutThw == 'T')
         {
             if(player[1].haveHolseCount>0)
-            //drawMenu.OnHorseQuestion(player[1]);
+            drawMenu.OnHorseQuestion(player[1]);
             util.SetCursurPoint(60 ,12);
             cout << "플레이어 " << "의 결과  ";
             player[1].ThrowYut(map);
