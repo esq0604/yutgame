@@ -2,22 +2,22 @@
 #include<iostream>
 #include"Player.h"
 #include "Util.h"
-#include "Horse.h"
+class Horse;
 using namespace std;
 class DrawMenu 
 {
 private:
 	Player player;
-	Horse horse;
+	Horse* horse;
 	Util util;
 	char helpMessageOut;
 	char inputCommand;
-	char inputShortRoad;
+	string inputShortRoad;
 	void DrawHelpMessage();
 	void DrawInputCommand();
 	void EnterInputHelpMessage();
 	void EnterInputCommand();
-	bool GetShortRoadSelect();
+	
 
 
 public:
@@ -28,5 +28,5 @@ public:
 	void DrawPlayerHaveHorse(Player* player);
 	void OnHorseQuestion(Player& player);
 	void DrawHelpMessageInGame();
-
+	bool GetShortRoadSelect();
 };

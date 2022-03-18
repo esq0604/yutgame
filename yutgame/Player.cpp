@@ -152,25 +152,25 @@ string Player::GetYutCount(int yutCount)
 	return yutPrint;
 
 }
-//체크하는 함수를 만들고, 맵에서 이 함수를 쓰면 각 객체가 
-int Player::GetHorseInSamePos(Map &map,Horse horse)
-{
-	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-	if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
-	{
-		samePosHorseNum = ON_ONE_HORSE;
-	}
-	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_TWO_HORSE)
-	{
-		samePosHorseNum = ON_TWO_HORSE;
-	}
-	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_THREE_HORSE)
-	{
-		samePosHorseNum = ON_THREE_HORSE;
-	}
-
-	return samePosHorseNum;
-}
+////체크하는 함수를 만들고, 맵에서 이 함수를 쓰면 각 객체가 
+//int Player::GetHorseInSamePos(Map &map,Horse horse)
+//{
+//	//맵에 말이 몇개 올라가있는지 체크를 하려면..
+//	if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
+//	{
+//		samePosHorseNum = ON_ONE_HORSE;
+//	}
+//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_TWO_HORSE)
+//	{
+//		samePosHorseNum = ON_TWO_HORSE;
+//	}
+//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_THREE_HORSE)
+//	{
+//		samePosHorseNum = ON_THREE_HORSE;
+//	}
+//
+//	return samePosHorseNum;
+//}
 
 
 	

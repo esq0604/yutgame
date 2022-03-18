@@ -8,7 +8,6 @@ class Horse;
 #include "Map.h"
 #include "Util.h"
 
-
 enum eKEY
 {
 	KEY_LEFT = 75,

@@ -1,5 +1,5 @@
 #include "Horse.h"
-
+#include"DrawMenu.h"
 Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_ROW_POS(25), OUT_COL_POS(20), ON_TWO_HORSE(2)
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
@@ -10,6 +10,7 @@ Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0),
 	secondShortRoad = false;
 	centerShortRoad = false;
 	nomalRoad = true;
+	
 }
 
 //현재 처음에 올라가는 값은 current값을 이용한것이 아니라서 
@@ -65,9 +66,15 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 		//말을 옮긴 뒤 위치체크 
 		if (currentRowPos == 0 && currentColPos == MAX_POS)
 		{
-			firstShortRoad = true;
-			nomalRoad = false;
+			
+			if (menu->GetShortRoadSelect())
+			{
+				firstShortRoad = true;
+				nomalRoad = false;
+			}
+			cout << " ";
 		}
+		
 		/*if (map.MAP[currentRowPos][currentColPos] > 0)
 			CheckHorseNumOnPos(map);
 		else*/
@@ -194,19 +201,19 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		SetHorsePos(currentRowPos, currentColPos);
 	}
 }
-//void Horse::CheckHorseNumOnPos(Map& map)
-//{
-//	
-//	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
-//	{
-//		map.MAP[currentRowPos][currentColPos]++;
-//	}
-//	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
-//	{
-//		map.MAP[currentRowPos][currentColPos]++;
-//	}
-//
-//}
+void Horse::CheckHorseNumOnPos(Map& map)
+{
+	
+	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+	{
+		map.MAP[currentRowPos][currentColPos]++;
+	}
+	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
+	{
+		map.MAP[currentRowPos][currentColPos]++;
+	}
+
+}
 
 
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??

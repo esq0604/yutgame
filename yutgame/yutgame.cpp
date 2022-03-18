@@ -18,7 +18,9 @@ int main()
     Player player[3];
     Map map;
 
+    
     //util.TextColor(BLUE,LIGHTGRAY);
+    
     drawMenu.DrawMainScreen();
     drawMenu.DrawNamingScreen();
     drawMenu.DrawInputPlayerName(player);
