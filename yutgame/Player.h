@@ -1,10 +1,10 @@
 #pragma once
-class Horse;
 #include<string>
 #include<iostream>
 #include<array>
 #include<random>
 #include<conio.h>
+class Horse;
 #include "Map.h"
 #include "Util.h"
 

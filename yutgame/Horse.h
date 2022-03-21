@@ -2,7 +2,6 @@
 class DrawMenu;
 #include"Map.h"
 #include"Util.h"
-
 class Horse
 {
 private:
@@ -15,6 +14,7 @@ private:
 	const int CENTER_POS;
 	const int OUT_ROW_POS;
 	const int OUT_COL_POS;
+	char inputShortRoad;
 	bool firstShortRoad;
 	bool secondShortRoad;
 	bool centerShortRoad;
@@ -32,6 +32,7 @@ public:
 	int currentRowPos,currentColPos;
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
 	void CheckHorseNumOnPos(Map& map);
+	bool GetShortRoadSelect();
 	Horse();
 
 };

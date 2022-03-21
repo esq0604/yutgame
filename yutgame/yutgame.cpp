@@ -14,8 +14,8 @@ int main()
     system("color 8f");
     system("mode con cols=110 lines=40");
     Util util;
-    DrawMenu drawMenu;
     Player player[3];
+    DrawMenu drawMenu;
     Map map;
 
     

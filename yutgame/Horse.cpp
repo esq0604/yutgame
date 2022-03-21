@@ -1,5 +1,5 @@
-#include "Horse.h"
 #include"DrawMenu.h"
+#include "Horse.h"
 Horse::Horse():ON_HORSE(1),OFF_HORSE(0), MOVE_HORSE(5), MAX_POS(20), MIN_POS(0), CENTER_POS(10),OUT_ROW_POS(25), OUT_COL_POS(20), ON_TWO_HORSE(2)
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
@@ -67,7 +67,7 @@ void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTim
 		if (currentRowPos == 0 && currentColPos == MAX_POS)
 		{
 			
-			if (menu->GetShortRoadSelect())
+			if (GetShortRoadSelect())
 			{
 				firstShortRoad = true;
 				nomalRoad = false;
@@ -215,5 +215,18 @@ void Horse::CheckHorseNumOnPos(Map& map)
 
 }
 
+bool Horse:: GetShortRoadSelect()
+{
+	menu->DrawShortRoadSelect();
+	cin >> inputShortRoad;
 
+	if (inputShortRoad == 'y')
+	{
+		return true;
+	}
+	else if (inputShortRoad == 'n')
+		return false;
+	else
+		return false;
+}
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??

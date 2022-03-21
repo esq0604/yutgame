@@ -159,22 +159,7 @@ void DrawMenu::OnHorseQuestion(Player& player)
 
 }
 
-bool DrawMenu::GetShortRoadSelect()
-{
-    cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
-    cin >> inputShortRoad;
-    util.SetCursurPoint(10, 5);
-    cout << "Error in GetShortRoadSelect()";
-    util.SetCursurPoint(5, 5);
-    if (inputShortRoad == "y")
-    {
-        return true;
-    }
-    else if (inputShortRoad == "n")
-        return false;
-    else
-        return false;
-}
+
 void DrawMenu::DrawPlayerHaveHorse(Player* player)
 {
   
@@ -193,6 +178,11 @@ void DrawMenu::DrawInputPlayerName(Player* player)
         cout << "\t\t\t플레이어 " << i << "이름을 입력하세요: ";
         player[i].SetPlayerName();
     }
+}
+
+void DrawMenu::DrawShortRoadSelect()
+{
+    cout << "다음 턴에 지름길을 이용하시겠습니까? (y/n)";
 }
 
 
