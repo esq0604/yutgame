@@ -1,9 +1,2 @@
 ﻿  Player.cpp
-C:\Users\dltkd\yutgame\yutgame\Player.h(60,22): error C2535: 'void Player::SetPlayerName(void)': member function already defined or declared
-C:\Users\dltkd\yutgame\yutgame\Player.h(57): message : see declaration of 'Player::SetPlayerName'
-C:\Users\dltkd\yutgame\yutgame\Player.cpp(197,1): error C2084: function 'void Player::SetPlayerName(void)' already has a body
-C:\Users\dltkd\yutgame\yutgame\Player.cpp(61): message : see previous definition of 'SetPlayerName'
-  yutgame.cpp
-C:\Users\dltkd\yutgame\yutgame\Player.h(60,22): error C2535: 'void Player::SetPlayerName(void)': member function already defined or declared
-C:\Users\dltkd\yutgame\yutgame\Player.h(57): message : see declaration of 'Player::SetPlayerName'
-  Generating Code...
+  yutgame.vcxproj -> C:\Users\user1\yutgame\x64\Debug\yutgame.exe

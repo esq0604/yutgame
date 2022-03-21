@@ -57,6 +57,5 @@ public:
 	void SetPlayerName();
 	void CreateHorse();
 	void OnHorseSelect();
-	void SetPlayerName();
 	void GetPlayerHaveHorse(int playerNum);
 };

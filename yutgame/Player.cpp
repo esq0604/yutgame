@@ -60,9 +60,8 @@ int Player::GetHorseCount()
 
 void Player::SetPlayerName()
 {
-	string name;
-	cin >> name;
-	playerName = name;
+	menu.DrawSetPlayerName();
+	cin >> playerName;
 }
 
 
@@ -192,11 +191,6 @@ void Player::OnHorseSelect()
 	{
 		cout << "말이 더이상 없습니다";
 	}
-}
-void Player::SetPlayerName()
-{
-	menu.DrawSetPlayerName();
-	cout << " ";
 }
 void Player::GetPlayerHaveHorse(int playerNum)
 {
