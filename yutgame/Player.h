@@ -4,10 +4,11 @@
 #include<array>
 #include<random>
 #include<conio.h>
-class Horse;
+
 #include "Map.h"
 #include "Util.h"
-
+#include"Horse.h"
+#include"DrawMenu.h"
 enum eKEY
 {
 	KEY_LEFT = 75,
@@ -38,6 +39,7 @@ private:
 	Map map;
 	Util util;
 	Horse* horse[3];
+	DrawMenu menu;
 	//int playerPosition[21][21];
 	//void SelectHorse();
 	//void SelectHorseCurssor(Horse* horse);
@@ -54,5 +56,7 @@ public:
 	int GetHorseCount();
 	void SetPlayerName();
 	void CreateHorse();
-
+	void OnHorseSelect();
+	void SetPlayerName();
+	void GetPlayerHaveHorse(int playerNum);
 };

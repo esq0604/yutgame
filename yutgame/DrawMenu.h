@@ -1,13 +1,10 @@
 #pragma once
 #include<iostream>
-#include"Player.h"
 #include "Util.h"
 using namespace std;
 class DrawMenu 
 {
 private:
-	Player player;
-	Horse* horse;
 	Util util;
 	char helpMessageOut;
 	char inputCommand;
@@ -23,9 +20,9 @@ public:
 	void DrawMainScreen();
 	void DrawNamingScreen();
 	void DrawStartScreen();
-	void DrawInputPlayerName(Player* player);
-	void DrawPlayerHaveHorse(Player* player);
-	void OnHorseQuestion(Player& player);
+	void DrawSetPlayerName();
+	void DrawPlayerHaveHorse(int i);
+	void DrawOnHorseQuestion();
 	void DrawHelpMessageInGame();
 	void DrawShortRoadSelect();
 	//bool GetShortRoadSelect();

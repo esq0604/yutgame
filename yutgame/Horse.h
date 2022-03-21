@@ -1,5 +1,5 @@
 #pragma once
-class DrawMenu;
+#include"DrawMenu.h"
 #include"Map.h"
 #include"Util.h"
 class Horse

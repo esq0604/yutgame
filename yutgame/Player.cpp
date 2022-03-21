@@ -171,7 +171,38 @@ string Player::GetYutCount(int yutCount)
 //
 //	return samePosHorseNum;
 //}
+void Player::OnHorseSelect()
+{
+	char horseOnState;
+	menu.DrawOnHorseQuestion();
+	if (haveHolseCount >= 0)
+	{
+		cout << "말을 올리겠습니까? (y/n)";
+		cin >> horseOnState;
+		if (horseOnState == 'y')
+		{
+			CreateHorse();
+		}
+		else if (horseOnState == 'n')
+		{
 
+		}
+	}
+	else if (haveHolseCount < 0)
+	{
+		cout << "말이 더이상 없습니다";
+	}
+}
+void Player::SetPlayerName()
+{
+	menu.DrawSetPlayerName();
+	cout << " ";
+}
+void Player::GetPlayerHaveHorse(int playerNum)
+{
+	menu.DrawPlayerHaveHorse(playerNum);
+	cout << " ";
+}
 
 	
 	

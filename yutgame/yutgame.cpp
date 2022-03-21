@@ -1,6 +1,7 @@
 #include<windows.h>
 #include<array>
 #include<conio.h>
+#include"Player.h"
 #include "Map.h"
 #include "DrawMenu.h"
 #include "Util.h"
@@ -14,7 +15,7 @@ int main()
     system("color 8f");
     system("mode con cols=110 lines=40");
     Util util;
-    Player player[3];
+    Player player[2];
     DrawMenu drawMenu;
     Map map;
 
@@ -23,7 +24,7 @@ int main()
     
     drawMenu.DrawMainScreen();
     drawMenu.DrawNamingScreen();
-    drawMenu.DrawInputPlayerName(player);
+    drawMenu.DrawSetPlayerName();
     drawMenu.DrawStartScreen();
     system("cls");
 
@@ -34,12 +35,12 @@ int main()
         char yutThw;
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
-        drawMenu.DrawPlayerHaveHorse(player);
+        drawMenu.DrawPlayerHaveHorse(1);
         cin >> yutThw;
         if(yutThw == 'T')
         {
             if(player[1].haveHolseCount>0)
-            drawMenu.OnHorseQuestion(player[1]);
+            drawMenu.DrawOnHorseQuestion();
             util.SetCursurPoint(60 ,12);
             cout << "플레이어 " << "의 결과  ";
             player[1].ThrowYut(map);
