@@ -28,6 +28,7 @@ private:
 	const int ON_ONE_HORSE;
 	const int ON_TWO_HORSE;
 	const int ON_THREE_HORSE;
+	const int OFF_HORSE;
 	int throwCount;
 	int yutCount;
 	int currentHorseIdx;
@@ -45,7 +46,7 @@ private:
 	//void SelectHorseCurssor(Horse* horse);
 	string GetYutCount(int yutCount);
 	int GetRandomNumber();
-	int GetHorseInSamePos(Map& map, Horse horse);
+	void GetHorseInSamePos(Map& map, Horse horse);
 
 public:
 	int haveHolseCount;
@@ -58,4 +59,6 @@ public:
 	void CreateHorse();
 	void OnHorseSelect();
 	void GetPlayerHaveHorse(int playerNum);
+	void MoveHorse(Map& map, Horse* horse);
+
 };

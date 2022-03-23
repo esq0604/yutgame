@@ -1,7 +1,7 @@
 //클래스 구현부 
 #include "Player.h"
 #include "Horse.h"
-Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0), ON_ONE_HORSE(1), ON_TWO_HORSE(2), ON_THREE_HORSE(3)
+Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0), ON_ONE_HORSE(1), ON_TWO_HORSE(2), ON_THREE_HORSE(3), OFF_HORSE(0)
 {
 	//playerPosition[0][0] = 0;
 	yutState = { 0};
@@ -149,23 +149,26 @@ string Player::GetYutCount(int yutCount)
 
 }
 //체크하는 함수를 만들고, 맵에서 이 함수를 쓰면 각 객체가 
-int Player::GetHorseInSamePos(Map &map,Horse horse)
+void Player::GetHorseInSamePos(Map &map,Horse horse)
 {
 	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-	if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
+	if (map.MAP[horse.currentRowPos][horse.currentColPos] == OFF_HORSE)
 	{
-		samePosHorseNum = ON_ONE_HORSE;
+		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_ONE_HORSE;
+		//samePosHorseNum = ON_ONE_HORSE;
+	}
+	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
+	{
+		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_TWO_HORSE;
+
+		//samePosHorseNum = ON_TWO_HORSE;
 	}
 	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_TWO_HORSE)
 	{
-		samePosHorseNum = ON_TWO_HORSE;
-	}
-	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_THREE_HORSE)
-	{
-		samePosHorseNum = ON_THREE_HORSE;
+		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_THREE_HORSE;
+		//samePosHorseNum = ON_THREE_HORSE;
 	}
 
-	return samePosHorseNum;
 }
 void Player::OnHorseSelect()
 {
@@ -174,11 +177,11 @@ void Player::OnHorseSelect()
 	if (haveHolseCount >= 0)
 	{
 		cin >> horseOnState;
-		if (horseOnState == 'y')
+		if (horseOnState == 'y'||horseOnState =='Y')
 		{
 			CreateHorse();
 		}
-		else if (horseOnState == 'n')
+		else if (horseOnState == 'n'|| horseOnState == 'N')
 		{
 
 		}
@@ -193,6 +196,11 @@ void Player::GetPlayerHaveHorse(int playerNum)
 	menu.DrawPlayerHaveHorse(playerNum);
 	std::cout << haveHolseCount;
 	
+}
+
+void Player::MoveHorse(Map& map, Horse* horse)
+{
+	(horse+currentHorseIdx)->MoveHorsePos
 }
 
 	

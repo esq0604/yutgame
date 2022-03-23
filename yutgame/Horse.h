@@ -25,12 +25,11 @@ private:
 	Util util;
 	DrawMenu* menu;
 	void SetHorsePos(int row, int col);
-	void MoveHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
+	void MoveHorsePos(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
 public:
 	int currentRowPos,currentColPos;
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
-	//void CheckHorseNumOnPos(Map& map);
 	bool GetShortRoadSelect();
 	Horse();
 

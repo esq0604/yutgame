@@ -21,19 +21,19 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 	switch (yutCount)
 	{
 	case 0:
-		MoveHorse(map, currentRowPos, currentColPos, 4);
+		MoveHorsePos(map, currentRowPos, currentColPos, 4);
 		break;
 	case 1:
-		MoveHorse(map, currentRowPos, currentColPos, 1);
+		MoveHorsePos(map, currentRowPos, currentColPos, 1);
 		break;
 	case 2:
-		MoveHorse(map, currentRowPos, currentColPos, 2);
+		MoveHorsePos(map, currentRowPos, currentColPos, 2);
 		break;
 	case 3:
-		MoveHorse(map, currentRowPos, currentColPos, 3);
+		MoveHorsePos(map, currentRowPos, currentColPos, 3);
 		break;
 	case 4:
-		MoveHorse(map, currentRowPos, currentColPos, 4);
+		MoveHorsePos(map, currentRowPos, currentColPos, 4);
 		break;
 	}
 	util.SetCursurPoint(0, 0);
@@ -45,7 +45,7 @@ void Horse::SetHorsePos(int row, int col)
 	this->currentColPos = col;
 }
 
-void Horse::MoveHorse(Map& map, int currentRowPos, int currentColPos,int loopTime)
+void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loopTime)
 {
 	
 	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
@@ -200,30 +200,18 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		SetHorsePos(currentRowPos, currentColPos);
 	}
 }
-//void Horse::CheckHorseNumOnPos(Map& map)
-//{
-//	
-//	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
-//	{
-//		map.MAP[currentRowPos][currentColPos]++;
-//	}
-//	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
-//	{
-//		map.MAP[currentRowPos][currentColPos]++;
-//	}
-//
-//}
+
 
 bool Horse:: GetShortRoadSelect()
 {
 	menu->DrawShortRoadSelect();
 	cin >> inputShortRoad;
 
-	if (inputShortRoad == 'y')
+	if (inputShortRoad == 'y'||inputShortRoad=='Y')
 	{
 		return true;
 	}
-	else if (inputShortRoad == 'n')
+	else if (inputShortRoad == 'n' || inputShortRoad == 'N')
 		return false;
 	else
 		return false;
