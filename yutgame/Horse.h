@@ -20,7 +20,6 @@ private:
 	bool centerShortRoad;
 	bool nomalRoad;
 	bool horseInMap = false;
-	bool ff;
 	//int horseNum;
 	Map map;
 	Util util;
@@ -31,7 +30,7 @@ private:
 public:
 	int currentRowPos,currentColPos;
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
-	void CheckHorseNumOnPos(Map& map);
+	//void CheckHorseNumOnPos(Map& map);
 	bool GetShortRoadSelect();
 	Horse();
 

@@ -200,19 +200,19 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		SetHorsePos(currentRowPos, currentColPos);
 	}
 }
-void Horse::CheckHorseNumOnPos(Map& map)
-{
-	
-	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
-	{
-		map.MAP[currentRowPos][currentColPos]++;
-	}
-	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
-	{
-		map.MAP[currentRowPos][currentColPos]++;
-	}
-
-}
+//void Horse::CheckHorseNumOnPos(Map& map)
+//{
+//	
+//	if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+//	{
+//		map.MAP[currentRowPos][currentColPos]++;
+//	}
+//	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
+//	{
+//		map.MAP[currentRowPos][currentColPos]++;
+//	}
+//
+//}
 
 bool Horse:: GetShortRoadSelect()
 {

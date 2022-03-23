@@ -38,7 +38,7 @@ private:
 	string yutPrint;
 	Map map;
 	Util util;
-	Horse* horse[3];
+	Horse horse[3];
 	DrawMenu menu;
 	//int playerPosition[21][21];
 	//void SelectHorse();
@@ -54,7 +54,7 @@ public:
 	Player();
 	void ThrowYut(Map& map);
 	int GetHorseCount();
-	void SetPlayerName();
+	void SetPlayerName(int playNum);
 	void CreateHorse();
 	void OnHorseSelect();
 	void GetPlayerHaveHorse(int playerNum);

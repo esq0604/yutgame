@@ -20,7 +20,7 @@ public:
 	void DrawMainScreen();
 	void DrawNamingScreen();
 	void DrawStartScreen();
-	void DrawSetPlayerName();
+	void DrawSetPlayerName(int playerNum);
 	void DrawPlayerHaveHorse(int i);
 	void DrawOnHorseQuestion();
 	void DrawHelpMessageInGame();

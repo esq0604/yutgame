@@ -23,7 +23,7 @@ void DrawMenu::DrawMainScreen()
     cout << "\t\t\t\t"; cout << "     게임전 화면 이동을 하려면 아무키나 누르세요.\n\n\n\n\n\n\n";
     cout << "\t\t\t\t"; cout << "                \n\n\n\n\n\n\n";
     cout << "\t\t\t\t"; cout << "                   \n\t\t\t\t";
-    getchar();
+   getchar();
     system("cls");
 }
 void DrawMenu::DrawNamingScreen()
@@ -144,20 +144,15 @@ void DrawMenu::DrawPlayerHaveHorse(int i)
 {
   
     util.SetCursurPoint(0, 25);
-    cout << "플레이어 " << 1 << "보유 말의 수 ";//player+1.GetHorseCount
-    util.SetCursurPoint(0, 27);
+    cout << "플레이어 " << i << "보유 말의 수 ";
     //cout << "플레이어 " << 2 << "보유 말의 수 ";
     //입력칸을 위해 커서위치를 바꿔놈 
-    util.SetCursurPoint(60, 10);
+    
 }
 
-void DrawMenu::DrawSetPlayerName()
+void DrawMenu::DrawSetPlayerName(int playerNum)
 {
-    for (int i = 0; i < 2; i++)
-    {
-        cout << "\t\t\t플레이어 " << i << "이름을 입력하세요: ";
-        //player[i].SetPlayerName();
-    }
+        cout << "\t\t\t플레이어 " << playerNum << "이름을 입력하세요: ";
 }
 
 void DrawMenu::DrawShortRoadSelect()
