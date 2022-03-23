@@ -200,7 +200,8 @@ void Player::GetPlayerHaveHorse(int playerNum)
 
 void Player::MoveHorse(Map& map, Horse* horse)
 {
-	(horse+currentHorseIdx)->MoveHorsePos
+	//(horse+currentHorseIdx).MoveHorsePos(map.MAP,(horse + currentHorseIdx));
+
 }
 
 	
