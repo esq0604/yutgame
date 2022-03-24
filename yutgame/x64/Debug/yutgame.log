@@ -1,6 +1,11 @@
 ﻿  Horse.cpp
+  DrawMenu.cpp
+  Map.cpp
   Player.cpp
-C:\Users\컴퓨터\yutgame\yutgame\Player.cpp(204,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
-C:\Users\컴퓨터\yutgame\yutgame\Player.cpp(204,1): error C3867: 'Horse::MoveHorsePos': 비표준 구문입니다. '&'를 사용하여 멤버 포인터를 만드세요.
+  PlayGame.cpp
+  Util.cpp
+C:\Users\dltkd\yutgame\yutgame\Util.cpp(10,16): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\dltkd\yutgame\yutgame\Util.cpp(10,20): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
   yutgame.cpp
-  코드를 생성하고 있습니다...
+  Generating Code...
+  yutgame.vcxproj -> C:\Users\dltkd\yutgame\x64\Debug\yutgame.exe

@@ -1,7 +1,7 @@
 //클래스 구현부 
 #include "Player.h"
 #include "Horse.h"
-Player::Player():MIN_HORSE_IDX(0), MAX_HORSE_IDX(2), CURSOR_POINT_COLNUM(1), CURSOR_POINT_ROWNUM(5), MAX_HORSE_POS(20), MIN_HORSE_POS(0), ON_ONE_HORSE(1), ON_TWO_HORSE(2), ON_THREE_HORSE(3), OFF_HORSE(0)
+Player::Player()
 {
 	//playerPosition[0][0] = 0;
 	yutState = { 0};
@@ -37,7 +37,7 @@ void Player::ThrowYut(Map& map)
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
 		//SelectHorse();
 		
-		horse[currentHorseIdx].MoveHorseSystem(yutCount, map, horse[currentHorseIdx].currentRowPos, horse[currentHorseIdx].currentColPos);
+		MoveHorse(map, horse + currentHorseIdx);
 		yutCount = 0;
 	
 		
@@ -45,7 +45,10 @@ void Player::ThrowYut(Map& map)
 
 void Player::CreateHorse()
 {
+	//3, 2, 1, 0- 콘솔창에 표시
 	haveHolseCount--;
+	//2 ,1 ,0 ,-1 ??-배열인덱스 다루기 
+	if(currentHorseIdx>0)
 	currentHorseIdx--;
 
 }
@@ -124,7 +127,7 @@ int Player::GetRandomNumber()
 }
 
 //2바이트 , char는 1바이트 
-string Player::GetYutCount(int yutCount)
+string Player::GetYutCount(const int yutCount)
 {
 	switch (yutCount)
 	{
@@ -200,8 +203,10 @@ void Player::GetPlayerHaveHorse(int playerNum)
 
 void Player::MoveHorse(Map& map, Horse* horse)
 {
-	//(horse+currentHorseIdx).MoveHorsePos(map.MAP,(horse + currentHorseIdx));
-
+	//horse에서 pos를 결정
+	horse[currentHorseIdx].MoveHorseSystem(yutCount,map,horse[currentHorseIdx].currentRowPos,horse[currentHorseIdx].currentColPos);
+	//player에서 움직임을 결정 
+	map.MAP[horse->currentRowPos][horse->currentColPos] = 1;
 }
 
 	

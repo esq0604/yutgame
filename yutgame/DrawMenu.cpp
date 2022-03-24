@@ -91,6 +91,7 @@ void DrawMenu::EnterInputHelpMessage()
         }
     }
 }
+
 void DrawMenu::EnterInputCommand()
 {
     bool bOnLoop = true;

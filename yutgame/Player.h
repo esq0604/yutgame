@@ -19,16 +19,16 @@ using namespace std;
 class Player 
 {
 private:
-	const int MIN_HORSE_IDX;
-	const int MAX_HORSE_IDX;
-	const int MAX_HORSE_POS;
-	const int MIN_HORSE_POS;
-	const int CURSOR_POINT_COLNUM;
-	const int CURSOR_POINT_ROWNUM;
-	const int ON_ONE_HORSE;
-	const int ON_TWO_HORSE;
-	const int ON_THREE_HORSE;
-	const int OFF_HORSE;
+	static const int MIN_HORSE_IDX=0;
+	static const int MAX_HORSE_IDX=2;
+	static const int MAX_HORSE_POS=20;
+	static const int MIN_HORSE_POS=0;
+	static const int CURSOR_POINT_COLNUM=1;
+	static const int CURSOR_POINT_ROWNUM=5;
+	static const int ON_ONE_HORSE=1;
+	static const int ON_TWO_HORSE=2;
+	static const int ON_THREE_HORSE=3;
+	static const int OFF_HORSE=0;
 	int throwCount;
 	int yutCount;
 	int currentHorseIdx;
