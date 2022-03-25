@@ -26,11 +26,14 @@ private:
 	DrawMenu menu;
 	void SetHorsePos(int row, int col);
 	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
+	//void Set_n_horse(Map& map, Horse& horse);
 public:
+	int n_horse; //말 이 겹쳤는지 이걸로 움직임.
 	int currentRowPos,currentColPos;
 	void MoveHorsePos(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
 	bool GetShortRoadSelect();
+	
 	Horse();
 
 };

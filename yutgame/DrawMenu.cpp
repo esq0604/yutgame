@@ -144,7 +144,7 @@ void DrawMenu::DrawOnHorseQuestion()
 void DrawMenu::DrawPlayerHaveHorse(int i)
 {
   
-    util.SetCursurPoint(0, 25);
+    
     cout << "플레이어 " << i << "보유 말의 수 ";
     //cout << "플레이어 " << 2 << "보유 말의 수 ";
     //입력칸을 위해 커서위치를 바꿔놈 

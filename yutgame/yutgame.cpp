@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+    int order = 0;
     const int PLAYER_ONE = 1;
     const int PLAYER_TWO = 2;
     system("color 8f");
@@ -36,27 +37,39 @@ int main()
     while (true)
     {
         system("cls");
-
+       util.SetCursurPoint(0, 29);
+        cout << "플레이어 " << (order + 1) << "의 차례입니다.";
+        util.SetCursurPoint(0, 0);
         char yutThw;
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
+        util.SetCursurPoint(0, 25);
         player[0].GetPlayerHaveHorse(PLAYER_ONE);
+        util.SetCursurPoint(0, 27);
+        player[1].GetPlayerHaveHorse(PLAYER_TWO);
+
         util.SetCursurPoint(60, 10);
         cin >> yutThw;
         if(yutThw == 'T')
         {
-            if(player[1].haveHolseCount>0)
-            player[0].OnHorseSelect();
+            
+            util.SetCursurPoint(0, 31);
+            if(player[0].haveHolseCount>0)
+            player[order].OnHorseSelect();
             util.SetCursurPoint(60 ,12);
+            cout << "플레이어 " <<(order+1)<<"의 결과  ";
+            player[order].ThrowYut(map);
+           /* util.SetCursurPoint(60,14);
             cout << "플레이어 " << "의 결과  ";
-            player[0].ThrowYut(map);
-            //util.SetCursurPoint(60,14);
-            //cout << "플레이어 " << "의 결과  ";
-            //player[2].ThrowYut();
+            player[1].ThrowYut(map);*/
 
         }     
         
  
+        if (order == 0)
+            order = 1;
+        else
+            order = 0;
         cout << endl;
         util.SetCursurPoint(48, 21);
         Sleep(2000);

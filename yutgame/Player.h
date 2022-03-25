@@ -59,6 +59,7 @@ public:
 	void CreateHorse();
 	void OnHorseSelect();
 	void GetPlayerHaveHorse(int playerNum);
-	void MoveHorse(Map& map, Horse* horse);
+	void MoveHorse(Map& map, Horse& horse);
+	//void GetHorseCnt(Map& map, Horse& horse);
 
 };

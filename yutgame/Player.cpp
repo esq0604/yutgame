@@ -37,7 +37,7 @@ void Player::ThrowYut(Map& map)
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
 		//SelectHorse();
 		
-		MoveHorse(map, horse + currentHorseIdx);
+		MoveHorse(map, horse[currentHorseIdx]);
 		yutCount = 0;
 	
 		
@@ -176,23 +176,33 @@ void Player::GetHorseInSamePos(Map &map,Horse horse)
 void Player::OnHorseSelect()
 {
 	char horseOnState;
-	menu.DrawOnHorseQuestion();
-	if (haveHolseCount >= 0)
+	if (haveHolseCount > 0 )
 	{
-		cin >> horseOnState;
-		if (horseOnState == 'y'||horseOnState =='Y')
+		if (haveHolseCount == 3)
 		{
 			CreateHorse();
 		}
-		else if (horseOnState == 'n'|| horseOnState == 'N')
+		else
 		{
+			menu.DrawOnHorseQuestion();
+			cin >> horseOnState;
 
+			if (horseOnState == 'y' || horseOnState == 'Y')
+			{
+				CreateHorse();
+			}
+			else if (horseOnState == 'n' || horseOnState == 'N')
+			{
+
+			}
 		}
 	}
-	else if (haveHolseCount < 0)
+
+	
+	/*else if (haveHolseCount == 0)
 	{
-		cout << "말이 더이상 없습니다";
-	}
+		
+	}*/
 }
 void Player::GetPlayerHaveHorse(int playerNum)
 {
@@ -201,16 +211,31 @@ void Player::GetPlayerHaveHorse(int playerNum)
 	
 }
 
-void Player::MoveHorse(Map& map, Horse* horse)
+void Player::MoveHorse(Map& map, Horse& horse)
 {
 	//horse에서 pos를 결정
-	horse[currentHorseIdx].MoveHorseSystem(yutCount,map,horse[currentHorseIdx].currentRowPos,horse[currentHorseIdx].currentColPos);
+	map.MAP[horse.currentRowPos][horse.currentColPos] = OFF_HORSE;
+
+	horse.MoveHorseSystem(yutCount,map,horse.currentRowPos,horse.currentColPos);
+	//GetHorseCnt(map, horse);
 	//player에서 움직임을 결정 
-	map.MAP[horse->currentRowPos][horse->currentColPos] = 1;
+	map.MAP[horse.currentRowPos][horse.currentColPos] = horse.n_horse;
+	
+	//debug - cout << horse.currentRowPos << " " << horse.currentColPos;
 }
 
-	
-	
+//void GetHorseCnt(Map& map, Horse& horse)
+//{
+//	if (map.MAP[horse.currentRowPos][horse.currentColPos] == 0)
+//		horse.n_horse = 1;
+//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == 1)
+//		horse.n_horse = 2;
+//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == 2)
+//		horse.n_horse = 3;
+//}
 
+	
+	
+ 
 
 

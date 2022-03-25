@@ -9,7 +9,7 @@ Horse::Horse()
 	secondShortRoad = false;
 	centerShortRoad = false;
 	nomalRoad = true;
-	
+	n_horse = 1;
 }
 
 //현재 처음에 올라가는 값은 current값을 이용한것이 아니라서 
@@ -49,9 +49,8 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 {
 	
 	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
-	if (((currentColPos == MAX_POS) && (currentRowPos <= MAX_POS ))||((currentColPos==OUT_COL_POS)&&(currentRowPos==OUT_ROW_POS)))
+	if ((((currentColPos == MAX_POS) && (currentRowPos <= MAX_POS ))||((currentColPos==OUT_COL_POS)&&(currentRowPos==OUT_ROW_POS)))&&nomalRoad)
 	{
-		//map.MAP[currentRowPos][currentColPos] = OFF_HORSE;
 		for (int i = 0; i < loopTime; i++)
 		{
 			if ((currentRowPos > MIN_POS)&&(currentColPos==OUT_COL_POS))
@@ -72,12 +71,9 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 			cout << " ";
 		}
 		
-		/*if (map.MAP[currentRowPos][currentColPos] > 0)
-			CheckHorseNumOnPos(map);
-		else*/
 	}
 
-	else if (currentRowPos == MIN_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS) && nomalRoad)
+	else if ((currentRowPos == MIN_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS)) && nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
@@ -90,8 +86,11 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 
 		if (currentRowPos == MIN_POS && currentColPos == MIN_POS)
 		{
-			secondShortRoad = true;
-			nomalRoad = false;
+			if (GetShortRoadSelect())
+			{
+				secondShortRoad = true;
+				nomalRoad = false;
+			}
 		}
 	}
 
@@ -195,4 +194,9 @@ bool Horse:: GetShortRoadSelect()
 	else
 		return false;
 }
+
+//void Horse::Set_n_horse(Map& map, Horse& horse)
+//{
+//
+//}
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??
