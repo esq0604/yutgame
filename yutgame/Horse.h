@@ -30,6 +30,7 @@ private:
 public:
 	int n_horse; //말 이 겹쳤는지 이걸로 움직임.
 	int currentRowPos,currentColPos;
+	void GetSamePosHorse(Map& map);
 	void MoveHorsePos(Map& map, int currentRowPos, int currentColPos, int loopTime);
 	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
 	bool GetShortRoadSelect();

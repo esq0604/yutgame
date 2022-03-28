@@ -37,7 +37,6 @@ void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentC
 		break;
 	}
 	util.SetCursurPoint(0, 0);
-
 }
 void Horse::SetHorsePos(int row, int col)
 {
@@ -59,7 +58,7 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 				currentColPos -= MOVE_HORSE;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-
+		GetSamePosHorse(map);
 		if (currentRowPos == 0 && currentColPos == MAX_POS)
 		{
 			
@@ -83,7 +82,7 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 				currentRowPos += MOVE_HORSE;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-
+		GetSamePosHorse(map);
 		if (currentRowPos == MIN_POS && currentColPos == MIN_POS)
 		{
 			if (GetShortRoadSelect())
@@ -104,7 +103,7 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 				currentColPos += MOVE_HORSE;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-		
+		GetSamePosHorse(map);
 	}
 
 	else if (currentRowPos == MAX_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS)&& nomalRoad)
@@ -115,7 +114,7 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 				currentColPos += MOVE_HORSE;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
-		
+		GetSamePosHorse(map);
 	}
 }
 
@@ -149,6 +148,7 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 		}
 		
 		SetHorsePos(currentRowPos, currentColPos);
+		GetSamePosHorse(map);
 	}
 	else if (secondShortRoad)
 	{
@@ -164,6 +164,7 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 			centerShortRoad = true;
 		}
 		SetHorsePos(currentRowPos, currentColPos);
+		GetSamePosHorse(map);
 	}
 	else if (centerShortRoad)
 	{
@@ -176,6 +177,7 @@ void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int l
 			}
 		}
 		SetHorsePos(currentRowPos, currentColPos);
+		GetSamePosHorse(map);
 	}
 }
 
@@ -200,3 +202,15 @@ bool Horse:: GetShortRoadSelect()
 //
 //}
 //종착지에 들어왔으면 해당말을 지워주는함수 - delete해야할듯??
+void Horse::GetSamePosHorse(Map& map)
+{
+	//다음이동시는 고려되지 않았음 ,플레이어가 움직일 말을 선택하려면 
+	//같은위치인지 정보는 플레이어가 하는게 맞는거같기도 
+	if (map.MAP[currentRowPos][currentColPos] == OFF_HORSE)
+		n_horse = 1;
+	else if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+		n_horse = 2;
+	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
+		n_horse = 3;
+	
+}

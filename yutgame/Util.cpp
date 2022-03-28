@@ -10,3 +10,9 @@ void Util::SetCursurPoint(int x, int y)
 	COORD pos = { x,  y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
+
+void Util::SetTextColor(unsigned short text)
+{
+	color = text;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}

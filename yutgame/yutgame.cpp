@@ -15,14 +15,13 @@ int main()
     int order = 0;
     const int PLAYER_ONE = 1;
     const int PLAYER_TWO = 2;
-    system("color 8f");
+    //system("color 8f");
     system("mode con cols=110 lines=40");
     Util util;
     Player player[2];
     DrawMenu drawMenu;
     Map map;
 
-    
     //util.TextColor(BLUE,LIGHTGRAY);
     
     drawMenu.DrawMainScreen();
@@ -37,6 +36,7 @@ int main()
     while (true)
     {
         system("cls");
+        util.SetTextColor(WHITE);
        util.SetCursurPoint(0, 29);
         cout << "플레이어 " << (order + 1) << "의 차례입니다.";
         util.SetCursurPoint(0, 0);
@@ -47,25 +47,29 @@ int main()
         player[0].GetPlayerHaveHorse(PLAYER_ONE);
         util.SetCursurPoint(0, 27);
         player[1].GetPlayerHaveHorse(PLAYER_TWO);
-
         util.SetCursurPoint(60, 10);
+        //map.DrawMap();
         cin >> yutThw;
         if(yutThw == 'T')
         {
             
             util.SetCursurPoint(0, 31);
             if(player[0].haveHolseCount>0)
-            player[order].OnHorseSelect();
+            player[0].OnHorseSelect();
             util.SetCursurPoint(60 ,12);
             cout << "플레이어 " <<(order+1)<<"의 결과  ";
-            player[order].ThrowYut(map);
+            player[0].ThrowYut(map);
            /* util.SetCursurPoint(60,14);
             cout << "플레이어 " << "의 결과  ";
             player[1].ThrowYut(map);*/
 
         }     
         
- 
+        
+        if (util.color == 4)
+            util.color = 3;
+        else
+            util.color = 4;
         if (order == 0)
             order = 1;
         else

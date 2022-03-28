@@ -218,12 +218,11 @@ void Player::MoveHorse(Map& map, Horse& horse)
 
 	horse.MoveHorseSystem(yutCount,map,horse.currentRowPos,horse.currentColPos);
 	//GetHorseCnt(map, horse);
-	//player에서 움직임을 결정 
 	map.MAP[horse.currentRowPos][horse.currentColPos] = horse.n_horse;
 	
 	//debug - cout << horse.currentRowPos << " " << horse.currentColPos;
 }
-
+//
 //void GetHorseCnt(Map& map, Horse& horse)
 //{
 //	if (map.MAP[horse.currentRowPos][horse.currentColPos] == 0)
