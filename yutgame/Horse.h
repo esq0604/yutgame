@@ -4,6 +4,14 @@
 #include"Util.h"
 class Horse
 {
+public:
+	int n_horse; //말 이 겹쳤는지 이걸로 움직임.
+	struct Pos
+	{
+		int x;
+		int y;
+	};
+	Pos pos;
 private:
 	static const int ON_HORSE=1;
 	static const int ON_TWO_HORSE=2;
@@ -24,17 +32,16 @@ private:
 	Map map;
 	Util util;
 	DrawMenu menu;
+	void GetSamePosHorse(Map& map);
 	void SetHorsePos(int row, int col);
-	void MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime);
+	void MoveShortHorse(Map& map, Pos pos, int loopTime);
 	//void Set_n_horse(Map& map, Horse& horse);
 public:
-	int n_horse; //말 이 겹쳤는지 이걸로 움직임.
-	int currentRowPos,currentColPos;
-	void GetSamePosHorse(Map& map);
-	void MoveHorsePos(Map& map, int currentRowPos, int currentColPos, int loopTime);
-	void MoveHorseSystem(int yutCount, Map& map, int currentRowPos, int currentColPos);
-	bool GetShortRoadSelect();
 	
+	void MoveHorsePos(Map& map, Pos pos, int loopTime);
+	void MoveHorseSystem(const int yutCount, Map& map, Pos pos);
+	bool GetShortRoadSelect();
+	Pos GetHorsePos();
 	Horse();
 
 };

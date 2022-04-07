@@ -155,20 +155,20 @@ string Player::GetYutCount(const int yutCount)
 void Player::GetHorseInSamePos(Map &map,Horse horse)
 {
 	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-	if (map.MAP[horse.currentRowPos][horse.currentColPos] == OFF_HORSE)
+	if (map.MAP[horse.pos.x][horse.pos.y] == OFF_HORSE)
 	{
-		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_ONE_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = ON_ONE_HORSE;
 		//samePosHorseNum = ON_ONE_HORSE;
 	}
-	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_ONE_HORSE)
+	else if (map.MAP[horse.pos.x][horse.pos.y] == ON_ONE_HORSE)
 	{
-		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_TWO_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = ON_TWO_HORSE;
 
 		//samePosHorseNum = ON_TWO_HORSE;
 	}
-	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == ON_TWO_HORSE)
+	else if (map.MAP[horse.pos.x][horse.pos.y] == ON_TWO_HORSE)
 	{
-		map.MAP[horse.currentRowPos][horse.currentColPos] = ON_THREE_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = ON_THREE_HORSE;
 		//samePosHorseNum = ON_THREE_HORSE;
 	}
 
@@ -214,25 +214,29 @@ void Player::GetPlayerHaveHorse(int playerNum)
 void Player::MoveHorse(Map& map, Horse& horse)
 {
 	//horse에서 pos를 결정
-	map.MAP[horse.currentRowPos][horse.currentColPos] = OFF_HORSE;
+	map.MAP[horse.pos.x][horse.pos.y] = OFF_HORSE;
 
-	horse.MoveHorseSystem(yutCount,map,horse.currentRowPos,horse.currentColPos);
-	//GetHorseCnt(map, horse);
-	map.MAP[horse.currentRowPos][horse.currentColPos] = horse.n_horse;
+	horse.MoveHorseSystem(yutCount,map,horse.pos);
+	map.MAP[horse.pos.x][horse.pos.y] = horse.n_horse;
 	
-	//debug - cout << horse.currentRowPos << " " << horse.currentColPos;
+	//debug - cout << horse.pos.x << " " << horse.pos.y;
 }
 //
 //void GetHorseCnt(Map& map, Horse& horse)
 //{
-//	if (map.MAP[horse.currentRowPos][horse.currentColPos] == 0)
+//	if (map.MAP[horse.pos.x][horse.pos.y] == 0)
 //		horse.n_horse = 1;
-//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == 1)
+//	else if (map.MAP[horse.pos.x][horse.pos.y] == 1)
 //		horse.n_horse = 2;
-//	else if (map.MAP[horse.currentRowPos][horse.currentColPos] == 2)
+//	else if (map.MAP[horse.pos.x][horse.pos.y] == 2)
 //		horse.n_horse = 3;
 //}
 
+void GetHorsePos(Map& map, Horse& horse)
+{
+	Player::horsePos[0] = horse.GetHorsePos();
+	Player::horsePos[1].x = 1;
+}
 	
 	
  

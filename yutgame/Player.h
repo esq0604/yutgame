@@ -48,8 +48,16 @@ private:
 	int GetRandomNumber();
 	void GetHorseInSamePos(Map& map, Horse horse);
 
+
+	
 public:
 	int haveHolseCount;
+	struct HorsePos
+	{
+		int x;
+		int y;
+	};
+	struct HorsePos horsePos[3];
 
 public:
 	Player();
@@ -60,6 +68,8 @@ public:
 	void OnHorseSelect();
 	void GetPlayerHaveHorse(int playerNum);
 	void MoveHorse(Map& map, Horse& horse);
+	void GetHorsePos(Map& map, Horse& horse);
+
 	//void GetHorseCnt(Map& map, Horse& horse);
 
 };

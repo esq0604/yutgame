@@ -3,8 +3,8 @@ Horse::Horse()
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
 	//horseState로 판별하여 if문에서 넣어도 될듯?
-	currentRowPos = OUT_ROW_POS;
-	currentColPos = OUT_COL_POS;
+	pos.x = OUT_ROW_POS;
+	pos.y = OUT_COL_POS;
 	firstShortRoad = false;
 	secondShortRoad = false;
 	centerShortRoad = false;
@@ -14,52 +14,52 @@ Horse::Horse()
 
 //현재 처음에 올라가는 값은 current값을 이용한것이 아니라서 
 //처음값은 말의 개수 표기변화가 일어나지 않음.수정해줘야함 .
-void Horse::MoveHorseSystem(int yutCount,Map& map,int currentRowPos,int currentColPos)
+void Horse::MoveHorseSystem(const int yutCount,Map& map,Pos pos)
 {
 	//map.MAP[ROW][COL];
 	//CheckHorseNumOnPos(map);
 	switch (yutCount)
 	{
 	case 0:
-		MoveHorsePos(map, currentRowPos, currentColPos, 4);
+		MoveHorsePos(map, pos, 4);
 		break;
 	case 1:
-		MoveHorsePos(map, currentRowPos, currentColPos, 1);
+		MoveHorsePos(map, pos, 1);
 		break;
 	case 2:
-		MoveHorsePos(map, currentRowPos, currentColPos, 2);
+		MoveHorsePos(map, pos, 2);
 		break;
 	case 3:
-		MoveHorsePos(map, currentRowPos, currentColPos, 3);
+		MoveHorsePos(map, pos, 3);
 		break;
 	case 4:
-		MoveHorsePos(map, currentRowPos, currentColPos, 4);
+		MoveHorsePos(map, pos, 4);
 		break;
 	}
 	util.SetCursurPoint(0, 0);
 }
 void Horse::SetHorsePos(int row, int col)
 {
-	this->currentRowPos = row;
-	this->currentColPos = col;
+	this->pos.x = row;
+	this->pos.y = col;
 }
 
-void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loopTime)
+void Horse::MoveHorsePos(Map& map, Pos pos,int loopTime)
 {
 	
-	MoveShortHorse(map, currentRowPos, currentColPos, loopTime);
-	if ((((currentColPos == MAX_POS) && (currentRowPos <= MAX_POS ))||((currentColPos==OUT_COL_POS)&&(currentRowPos==OUT_ROW_POS)))&&nomalRoad)
+	MoveShortHorse(map, pos, loopTime);
+	if ((((pos.y == MAX_POS) && (pos.x <= MAX_POS ))||((pos.y==OUT_COL_POS)&&(pos.x==OUT_ROW_POS)))&&nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-			if ((currentRowPos > MIN_POS)&&(currentColPos==OUT_COL_POS))
-				currentRowPos -= MOVE_HORSE;
+			if ((pos.x > MIN_POS)&&(pos.y==OUT_COL_POS))
+				pos.x -= MOVE_HORSE;
 			else
-				currentColPos -= MOVE_HORSE;
+				pos.y -= MOVE_HORSE;
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
-		if (currentRowPos == 0 && currentColPos == MAX_POS)
+		if (pos.x == 0 && pos.y == MAX_POS)
 		{
 			
 			if (GetShortRoadSelect())
@@ -72,18 +72,18 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 		
 	}
 
-	else if ((currentRowPos == MIN_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS)) && nomalRoad)
+	else if ((pos.x == MIN_POS && (pos.y <= MAX_POS || pos.y >= MIN_POS)) && nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentColPos > MIN_POS)
-				currentColPos -= MOVE_HORSE;
+			if (pos.y > MIN_POS)
+				pos.y -= MOVE_HORSE;
 			else
-				currentRowPos += MOVE_HORSE;
+				pos.x += MOVE_HORSE;
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
-		if (currentRowPos == MIN_POS && currentColPos == MIN_POS)
+		if (pos.x == MIN_POS && pos.y == MIN_POS)
 		{
 			if (GetShortRoadSelect())
 			{
@@ -93,90 +93,90 @@ void Horse::MoveHorsePos(Map& map, int currentRowPos, int currentColPos,int loop
 		}
 	}
 
-	else if (currentColPos == MIN_POS && (currentRowPos <= MAX_POS || currentRowPos >= MIN_POS)&& nomalRoad)
+	else if (pos.y == MIN_POS && (pos.x <= MAX_POS || pos.x >= MIN_POS)&& nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentRowPos < MAX_POS)
-				currentRowPos += MOVE_HORSE;
+			if (pos.x < MAX_POS)
+				pos.x += MOVE_HORSE;
 			else
-				currentColPos += MOVE_HORSE;
+				pos.y += MOVE_HORSE;
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
 	}
 
-	else if (currentRowPos == MAX_POS && (currentColPos <= MAX_POS || currentColPos >= MIN_POS)&& nomalRoad)
+	else if (pos.x == MAX_POS && (pos.y <= MAX_POS || pos.y >= MIN_POS)&& nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentColPos < MAX_POS)
-				currentColPos += MOVE_HORSE;
+			if (pos.y < MAX_POS)
+				pos.y += MOVE_HORSE;
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
 	}
 }
 
-void Horse::MoveShortHorse(Map& map, int currentRowPos, int currentColPos, int loopTime)
+void Horse::MoveShortHorse(Map& map, Pos pos, int loopTime)
 {
 	if (firstShortRoad)
 	{
-		map.MAP[currentRowPos][currentColPos] = OFF_HORSE;
+		map.MAP[pos.x][pos.y] = OFF_HORSE;
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentRowPos < MAX_POS && currentColPos>MIN_POS)
+			if (pos.x < MAX_POS && pos.y>MIN_POS)
 			{
-				currentRowPos += MOVE_HORSE;
-				currentColPos -= MOVE_HORSE;
+				pos.x += MOVE_HORSE;
+				pos.y -= MOVE_HORSE;
 			
 			}
-			else if (currentRowPos == MAX_POS && currentColPos == MIN_POS)
+			else if (pos.x == MAX_POS && pos.y == MIN_POS)
 			{
 				//false로 바꿔서 for문만큼 돌아가지가 않음. 
 				nomalRoad = true;
 				firstShortRoad = false;
-				currentColPos += MOVE_HORSE *(loopTime-i);
+				pos.y += MOVE_HORSE *(loopTime-i);
 			}
 			
 		}
 
-		if (currentRowPos == CENTER_POS && currentColPos == CENTER_POS)
+		if (pos.x == CENTER_POS && pos.y == CENTER_POS)
 		{
 			firstShortRoad = false;
 			centerShortRoad = true;
 		}
 		
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
 	}
 	else if (secondShortRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-		currentRowPos += MOVE_HORSE;
-		currentColPos += MOVE_HORSE;
+		pos.x += MOVE_HORSE;
+		pos.y += MOVE_HORSE;
 		}
 
-		if (currentRowPos == CENTER_POS && currentColPos == CENTER_POS)
+		if (pos.x == CENTER_POS && pos.y == CENTER_POS)
 		{ 
 			secondShortRoad = false;
 			centerShortRoad = true;
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
 	}
 	else if (centerShortRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
 		{
-			if (currentColPos < MAX_POS && currentRowPos < MAX_POS)
+			if (pos.y < MAX_POS && pos.x < MAX_POS)
 			{
-				currentColPos += MOVE_HORSE;
-				currentRowPos += MOVE_HORSE;
+				pos.y += MOVE_HORSE;
+				pos.x += MOVE_HORSE;
 			}
 		}
-		SetHorsePos(currentRowPos, currentColPos);
+		SetHorsePos(pos.x, pos.y);
 		GetSamePosHorse(map);
 	}
 }
@@ -206,11 +206,15 @@ void Horse::GetSamePosHorse(Map& map)
 {
 	//다음이동시는 고려되지 않았음 ,플레이어가 움직일 말을 선택하려면 
 	//같은위치인지 정보는 플레이어가 하는게 맞는거같기도 
-	if (map.MAP[currentRowPos][currentColPos] == OFF_HORSE)
+	if (map.MAP[pos.x][pos.y] == OFF_HORSE)
 		n_horse = 1;
-	else if (map.MAP[currentRowPos][currentColPos] == ON_HORSE)
+	else if (map.MAP[pos.x][pos.y] == ON_HORSE)
 		n_horse = 2;
-	else if (map.MAP[currentRowPos][currentColPos] == ON_TWO_HORSE)
+	else if (map.MAP[pos.x][pos.y] == ON_TWO_HORSE)
 		n_horse = 3;
 	
+}
+Horse::Pos Horse::GetHorsePos()
+{
+	return pos;
 }
