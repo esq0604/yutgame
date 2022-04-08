@@ -234,8 +234,10 @@ void Player::MoveHorse(Map& map, Horse& horse)
 
 void GetHorsePos(Map& map, Horse& horse)
 {
-	Player::horsePos[0] = horse.GetHorsePos();
-	Player::horsePos[1].x = 1;
+	for (int i = 0; i < 3; i++)
+	{
+		Player::horsePos.x = horse.GetHorsePos().x;
+	}
 }
 	
 	
