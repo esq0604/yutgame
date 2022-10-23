@@ -238,8 +238,10 @@ void Player::MoveHorse(Map& map, Horse& horse)
 //TODO::수정해야함..
 void GetHorsePos(Map& map, Horse& horse)
 {
-	Player().horsePos[0].x = horse.pos.x;
-	cout << Player().horsePos[0].x;
+	for (int i = 0; i < 3; i++)
+	{
+		Player::horsePos.x = horse.GetHorsePos().x;
+	}
 }
 	
 void Player::SetHorseShape(const string(&shape)[3])

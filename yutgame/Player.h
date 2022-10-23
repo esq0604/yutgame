@@ -60,7 +60,7 @@ public:
 		int x;
 		int y;
 	};
-	struct HorsePos horsePos[3];
+	HorsePos horsePos;
 
 public:
 	Player();
