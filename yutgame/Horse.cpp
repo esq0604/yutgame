@@ -1,4 +1,5 @@
 #include "Horse.h"
+#include "GameInit.h"
 Horse::Horse()
 {
 	//초기값을 99로 넣고, 판에 올려두지 않음.
@@ -122,7 +123,7 @@ void Horse::MoveShortHorse(Map& map, Pos pos, int loopTime)
 {
 	if (firstShortRoad)
 	{
-		map.MAP[pos.x][pos.y] = OFF_HORSE;
+		//map.MAP[pos.x][pos.y] = OFF_HORSE;
 		for (int i = 0; i < loopTime; i++)
 		{
 			if (pos.x < MAX_POS && pos.y>MIN_POS)
@@ -206,12 +207,12 @@ void Horse::GetSamePosHorse(Map& map)
 {
 	//다음이동시는 고려되지 않았음 ,플레이어가 움직일 말을 선택하려면 
 	//같은위치인지 정보는 플레이어가 하는게 맞는거같기도 
-	if (map.MAP[pos.x][pos.y] == OFF_HORSE)
+	if (map.MAP[pos.x][pos.y] == 0)
 		n_horse = 1;
-	else if (map.MAP[pos.x][pos.y] == ON_HORSE)
-		n_horse = 2;
-	else if (map.MAP[pos.x][pos.y] == ON_TWO_HORSE)
-		n_horse = 3;
+	//else if (map.MAP[pos.x][pos.y] == )
+	//	n_horse = 2;
+	//else if (map.MAP[pos.x][pos.y] == ON_TWO_HORSE)
+	//	n_horse = 3;
 	
 }
 Horse::Pos Horse::GetHorsePos()

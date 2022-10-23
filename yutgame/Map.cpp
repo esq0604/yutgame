@@ -1,22 +1,23 @@
 #include "Map.h"
+
 void Map::DrawMap()
 {
     
-        for (int row = 0; row < ROW; row++)
+    for (int row = 0; row < ROW; row++)
+    {
+        cout << "\t";
+        for (int col = 0; col < COL; col++)
         {
-            cout << "\t";
-            for (int col = 0; col < COL; col++)
+            if (MAP[row][col] == '1')
             {
-                if ((row == 0 || col == 0 || row == 20 || col == 20) && (row % 5 == 0&&row<25) && (col % 5 == 0))
-                    cout << MAP[row][col] << " ";
-                else if ((row % 5 == 0 || col % 5 == 0) && (row == col) || (col * row == 75))
-                    cout << MAP[row][col] << " ";
-
-                else
-                    cout << " " << " ";
+                cout << ' ' << ' ' << "\t";
+                continue;
             }
-            cout << endl;
+            cout << MAP[row][col] << "\t";
+
         }
+        cout << endl << endl << endl << endl;
+    }
         /*for (int i = 0; i < ROW; i++)
         {
             cout << " ";

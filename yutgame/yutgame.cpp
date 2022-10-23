@@ -16,7 +16,7 @@ int main()
     const int PLAYER_ONE = 1;
     const int PLAYER_TWO = 2;
     //system("color 8f");
-    system("mode con cols=110 lines=40");
+    system("mode con cols=150 lines=40");
     Util util;
     Player player[2];
     DrawMenu drawMenu;
@@ -44,24 +44,25 @@ int main()
         map.DrawMap();
         drawMenu.DrawHelpMessageInGame();
         util.SetCursurPoint(0, 25);
+
         player[0].GetPlayerHaveHorse(PLAYER_ONE);
+        cout << player[0].haveHolseCount;
+        cout << player[1].haveHolseCount;
         util.SetCursurPoint(0, 27);
+
         player[1].GetPlayerHaveHorse(PLAYER_TWO);
         util.SetCursurPoint(60, 10);
-        //map.DrawMap();
+
         cin >> yutThw;
         if(yutThw == 'T')
         {
             
             util.SetCursurPoint(0, 31);
-            if(player[0].haveHolseCount>0)
-            player[0].OnHorseSelect();
+            if(player[order].haveHolseCount>0)
+            player[order].OnHorseSelect();
             util.SetCursurPoint(60 ,12);
             cout << "플레이어 " <<(order+1)<<"의 결과  ";
-            player[0].ThrowYut(map);
-           /* util.SetCursurPoint(60,14);
-            cout << "플레이어 " << "의 결과  ";
-            player[1].ThrowYut(map);*/
+            player[order].ThrowYut(map);
 
         }     
         
@@ -70,10 +71,9 @@ int main()
             util.color = 3;
         else
             util.color = 4;
-        if (order == 0)
-            order = 1;
-        else
-            order = 0;
+        
+        order = !order;
+
         cout << endl;
         util.SetCursurPoint(48, 21);
         Sleep(2000);

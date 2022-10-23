@@ -11,6 +11,8 @@ Player::Player()
 	haveHolseCount = 3;
 	currentHorseIdx = 3;
 	samePosHorseNum = 1;
+
+	OFF_HORSE = "0";
 	//horse = new Horse;
 	
 
@@ -58,7 +60,7 @@ int Player::GetHorseCount()
 }
 
 
-void Player::SetPlayerName(int playerNum)
+void Player::SetPlayerName(const int playerNum)
 {
 	menu.DrawSetPlayerName(playerNum);
 	cin >> playerName;
@@ -155,20 +157,20 @@ string Player::GetYutCount(const int yutCount)
 void Player::GetHorseInSamePos(Map &map,Horse horse)
 {
 	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-	if (map.MAP[horse.pos.x][horse.pos.y] == OFF_HORSE)
+	if (map.MAP[horse.pos.x][horse.pos.y])
 	{
-		map.MAP[horse.pos.x][horse.pos.y] = ON_ONE_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[0];
 		//samePosHorseNum = ON_ONE_HORSE;
 	}
-	else if (map.MAP[horse.pos.x][horse.pos.y] == ON_ONE_HORSE)
+	else if (map.MAP[horse.pos.x][horse.pos.y] == horse_Shape[0])
 	{
-		map.MAP[horse.pos.x][horse.pos.y] = ON_TWO_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[1];
 
 		//samePosHorseNum = ON_TWO_HORSE;
 	}
-	else if (map.MAP[horse.pos.x][horse.pos.y] == ON_TWO_HORSE)
+	else if (map.MAP[horse.pos.x][horse.pos.y] == horse_Shape[1])
 	{
-		map.MAP[horse.pos.x][horse.pos.y] = ON_THREE_HORSE;
+		map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[2];
 		//samePosHorseNum = ON_THREE_HORSE;
 	}
 
@@ -206,6 +208,7 @@ void Player::OnHorseSelect()
 }
 void Player::GetPlayerHaveHorse(int playerNum)
 {
+	//std::cout << playerNum << endl;
 	menu.DrawPlayerHaveHorse(playerNum);
 	std::cout << haveHolseCount;
 	
@@ -214,7 +217,7 @@ void Player::GetPlayerHaveHorse(int playerNum)
 void Player::MoveHorse(Map& map, Horse& horse)
 {
 	//horse에서 pos를 결정
-	map.MAP[horse.pos.x][horse.pos.y] = OFF_HORSE;
+	map.MAP[horse.pos.x][horse.pos.y];
 
 	horse.MoveHorseSystem(yutCount,map,horse.pos);
 	map.MAP[horse.pos.x][horse.pos.y] = horse.n_horse;
@@ -232,13 +235,20 @@ void Player::MoveHorse(Map& map, Horse& horse)
 //		horse.n_horse = 3;
 //}
 
+//TODO::수정해야함..
 void GetHorsePos(Map& map, Horse& horse)
 {
-	Player::horsePos[0] = horse.GetHorsePos();
-	Player::horsePos[1].x = 1;
+	Player().horsePos[0].x = horse.pos.x;
+	cout << Player().horsePos[0].x;
 }
 	
-	
- 
+void Player::SetHorseShape(const string(&shape)[3])
+{
+	for (int i = 0; i < 3; i++)
+	{
+		horse_Shape[i] = shape[i];
+	}
+
+}
 
 

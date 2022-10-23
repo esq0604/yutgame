@@ -1,16 +1,23 @@
 #pragma once
 #include<iostream>
 #include<windows.h>
+#include<vector>
 #define COL 22
 #define ROW 26
 using namespace std;
 class Map
 {
 public:
+
     void DrawMap();
-    void CreateMap();
 public:
     int colIdx = 20;
     int rowIdx = 20;
-    int  MAP[ROW][COL] = { 0 };
+    string MAP[6] =
+    {   "00000",
+        "00100",
+        "01010",
+        "00100",
+        "00000"
+    };
 };

@@ -1,5 +1,19 @@
-﻿  Horse.cpp
+﻿  GameInit.cpp
+  Horse.cpp
+  Map.cpp
   Player.cpp
+C:\Users\user1\yutgame\yutgame\Player.cpp(162,53): error C2440: '=': 'std::string'에서 'char'(으)로 변환할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(162,52): message : 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(165,62): error C2678: 이항 '==': 왼쪽 피연산자로 'char' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\guiddef.h(192,15): message : 'bool operator ==(const GUID &,const GUID &)'일 수 있습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(165,62): message : 인수 목록 '(char, std::string)'을(를) 일치시키는 동안
+C:\Users\user1\yutgame\yutgame\Player.cpp(167,53): error C2440: '=': 'std::string'에서 'char'(으)로 변환할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(167,52): message : 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(171,62): error C2678: 이항 '==': 왼쪽 피연산자로 'char' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\guiddef.h(192,15): message : 'bool operator ==(const GUID &,const GUID &)'일 수 있습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(171,62): message : 인수 목록 '(char, std::string)'을(를) 일치시키는 동안
+C:\Users\user1\yutgame\yutgame\Player.cpp(173,53): error C2440: '=': 'std::string'에서 'char'(으)로 변환할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(173,52): message : 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+C:\Users\user1\yutgame\yutgame\Player.cpp(220,34): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
   yutgame.cpp
-  Generating Code...
-  yutgame.vcxproj -> C:\Users\dltkd\yutgame\x64\Debug\yutgame.exe
+  코드를 생성하고 있습니다...

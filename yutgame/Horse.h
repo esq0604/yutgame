@@ -15,7 +15,7 @@ public:
 private:
 	static const int ON_HORSE=1;
 	static const int ON_TWO_HORSE=2;
-	static const int OFF_HORSE=0;
+	const char OFF_HORSE='0';
 	static const int MOVE_HORSE=5;
 	static const int MAX_POS=20;
 	static const int MIN_POS=0;
