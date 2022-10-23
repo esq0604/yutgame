@@ -38,7 +38,7 @@ private:
 	
 	string playerName;
 	string yutPrint;
-	string horse_Shape[3];
+	wchar_t horse_Shape[3];
 
 	Map map;
 	Util util;
@@ -60,6 +60,7 @@ public:
 		int x;
 		int y;
 	};
+
 	HorsePos horsePos;
 
 public:
@@ -72,7 +73,7 @@ public:
 	void GetPlayerHaveHorse(int playerNum);
 	void MoveHorse(Map& map, Horse& horse);
 	void GetHorsePos(Map& map, Horse& horse);
-	void SetHorseShape(const string(&shape)[3]);
+	void SetHorseShape(const wchar_t(&shape)[3]);
 
 	//void GetHorseCnt(Map& map, Horse& horse);
 

@@ -2,8 +2,8 @@
 #include<iostream>
 #include<windows.h>
 #include<vector>
-#define COL 22
-#define ROW 26
+#define COL 5
+#define ROW 5
 using namespace std;
 class Map
 {
