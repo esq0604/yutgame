@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "DrawMenu.h"
 #include "Util.h"
+#include "GameInit.h"
 using namespace std;
 
 
@@ -21,7 +22,7 @@ int main()
     Player player[2];
     DrawMenu drawMenu;
     Map map;
-
+    GameInit gameInit(player);
     //util.TextColor(BLUE,LIGHTGRAY);
     
     drawMenu.DrawMainScreen();
@@ -76,7 +77,7 @@ int main()
 
         cout << endl;
         util.SetCursurPoint(48, 21);
-        Sleep(2000);
+        Sleep(50000);
        
     }
         

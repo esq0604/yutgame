@@ -13,7 +13,7 @@ void Map::DrawMap()
                 cout << ' ' << ' ' << "\t";
                 continue;
             }
-            cout << MAP[row][col] << "\t";
+            wcout << MAP[row][col] << "\t";
 
         }
         cout << endl << endl << endl << endl;

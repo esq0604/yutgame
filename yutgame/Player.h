@@ -26,7 +26,7 @@ private:
 	static const int CURSOR_POINT_COLNUM=1;
 	static const int CURSOR_POINT_ROWNUM=5;
 
-	string OFF_HORSE;
+	static const wchar_t OFF_HORSE = '0';
 
 	int throwCount;
 	int yutCount;
@@ -38,7 +38,7 @@ private:
 	
 	string playerName;
 	string yutPrint;
-	wchar_t horse_Shape[3];
+	char horse_Shape[3];
 
 	Map map;
 	Util util;

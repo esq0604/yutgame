@@ -12,7 +12,6 @@ Player::Player()
 	currentHorseIdx = 3;
 	samePosHorseNum = 1;
 	
-	OFF_HORSE = "0";
 	//horse = new Horse;
 	
 
@@ -157,10 +156,11 @@ string Player::GetYutCount(const int yutCount)
 void Player::GetHorseInSamePos(Map &map,Horse horse)
 {
 	//맵에 말이 몇개 올라가있는지 체크를 하려면..
-
-	if (map.MAP[horse.pos.x][horse.pos.y])
+	cout << "GetHorseInSamePos" << endl;
+	if (map.MAP[horse.pos.x][horse.pos.y]== OFF_HORSE)
 	{
 		map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[0];
+		wcout << "cur state " << horse_Shape[0] << endl;
 		//samePosHorseNum = ON_ONE_HORSE;
 	}
 	else if (map.MAP[horse.pos.x][horse.pos.y] == horse_Shape[0])
@@ -218,10 +218,10 @@ void Player::GetPlayerHaveHorse(int playerNum)
 void Player::MoveHorse(Map& map, Horse& horse)
 {
 	//horse에서 pos를 결정
-	map.MAP[horse.pos.x][horse.pos.y];
+	map.MAP[horse.pos.x][horse.pos.y] = OFF_HORSE;
 
 	horse.MoveHorseSystem(yutCount,map,horse.pos);
-	map.MAP[horse.pos.x][horse.pos.y] = horse.n_horse;
+	map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[0];
 	
 	//debug - cout << horse.pos.x << " " << horse.pos.y;
 }
