@@ -5,18 +5,18 @@ void Map::DrawMap()
     
     for (int row = 0; row < ROW; row++)
     {
-        cout << "\t";
+        wcout << "\t";
         for (int col = 0; col < COL; col++)
         {
             if (MAP[row][col] == '1')
             {
-                cout << ' ' << ' ' << "\t";
+                wcout << ' ' << ' ' << "\t";
                 continue;
             }
             wcout << MAP[row][col] << "\t";
 
         }
-        cout << endl << endl << endl << endl;
+        wcout << endl << endl << endl << endl;
     }
         /*for (int i = 0; i < ROW; i++)
         {

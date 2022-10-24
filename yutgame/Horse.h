@@ -16,12 +16,12 @@ private:
 	static const int ON_HORSE=1;
 	static const int ON_TWO_HORSE=2;
 	const wchar_t OFF_HORSE='0';
-	static const int MOVE_HORSE=5;
-	static const int MAX_POS=20;
+	static const int MOVE_HORSE=1;
+	static const int MAX_POS=4;
 	static const int MIN_POS=0;
-	static const int CENTER_POS=10;
-	static const int OUT_ROW_POS=25;
-	static const int OUT_COL_POS=20;
+	static const int CENTER_POS=2;
+	static const int OUT_ROW_POS=5;
+	static const int OUT_COL_POS=4;
 	char inputShortRoad;
 	bool firstShortRoad;
 	bool secondShortRoad;
@@ -39,7 +39,7 @@ private:
 public:
 	
 	void MoveHorsePos(Map& map, Pos pos, int loopTime);
-	void MoveHorseSystem(const int yutCount, Map& map, Pos pos);
+	void MoveHorseSystem(const int& yutCount, Map& map, Pos pos);
 	bool GetShortRoadSelect();
 	Pos GetHorsePos();
 	Horse();

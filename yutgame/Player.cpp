@@ -38,7 +38,7 @@ void Player::ThrowYut(Map& map)
 		cout << "뒤집힌 윷의 수 " << yutCount << " " << GetYutCount(yutCount);
 		//SelectHorse();
 		
-		MoveHorse(map, horse[currentHorseIdx]);
+		MoveHorse(map, horse[currentHorseIdx], yutCount);
 		yutCount = 0;
 	
 		
@@ -215,12 +215,13 @@ void Player::GetPlayerHaveHorse(int playerNum)
 	
 }
 
-void Player::MoveHorse(Map& map, Horse& horse)
+void Player::MoveHorse(Map& map, Horse& horse, const int& yutCount)
 {
 	//horse에서 pos를 결정
 	map.MAP[horse.pos.x][horse.pos.y] = OFF_HORSE;
-
+	cout << horse.pos.x << ' ' << horse.pos.y << endl;
 	horse.MoveHorseSystem(yutCount,map,horse.pos);
+
 	map.MAP[horse.pos.x][horse.pos.y] = horse_Shape[0];
 	
 	//debug - cout << horse.pos.x << " " << horse.pos.y;

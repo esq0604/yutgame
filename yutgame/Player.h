@@ -21,7 +21,7 @@ class Player
 private:
 	static const int MIN_HORSE_IDX=0;
 	static const int MAX_HORSE_IDX=2;
-	static const int MAX_HORSE_POS=20;
+	static const int MAX_HORSE_POS=5;
 	static const int MIN_HORSE_POS=0;
 	static const int CURSOR_POINT_COLNUM=1;
 	static const int CURSOR_POINT_ROWNUM=5;
@@ -38,7 +38,7 @@ private:
 	
 	string playerName;
 	string yutPrint;
-	char horse_Shape[3];
+	wchar_t horse_Shape[3];
 
 	Map map;
 	Util util;
@@ -71,7 +71,7 @@ public:
 	void CreateHorse();
 	void OnHorseSelect();
 	void GetPlayerHaveHorse(int playerNum);
-	void MoveHorse(Map& map, Horse& horse);
+	void MoveHorse(Map& map, Horse& horse,const int& yutCount);
 	void GetHorsePos(Map& map, Horse& horse);
 	void SetHorseShape(const wchar_t(&shape)[3]);
 

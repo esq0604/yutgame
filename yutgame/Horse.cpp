@@ -15,7 +15,7 @@ Horse::Horse()
 
 //현재 처음에 올라가는 값은 current값을 이용한것이 아니라서 
 //처음값은 말의 개수 표기변화가 일어나지 않음.수정해줘야함 .
-void Horse::MoveHorseSystem(const int yutCount,Map& map,Pos pos)
+void Horse::MoveHorseSystem(const int& yutCount,Map& map,Pos pos)
 {
 	//map.MAP[ROW][COL];
 	//CheckHorseNumOnPos(map);
@@ -49,8 +49,12 @@ void Horse::MoveHorsePos(Map& map, Pos pos,int loopTime)
 {
 	
 	MoveShortHorse(map, pos, loopTime);
+	//첫번째 라인 
+	
 	if ((((pos.y == MAX_POS) && (pos.x <= MAX_POS ))||((pos.y==OUT_COL_POS)&&(pos.x==OUT_ROW_POS)))&&nomalRoad)
 	{
+		cout << "first line" << endl;
+		cout << pos.x << ' ' << pos.y << endl;
 		for (int i = 0; i < loopTime; i++)
 		{
 			if ((pos.x > MIN_POS)&&(pos.y==OUT_COL_POS))
@@ -73,6 +77,7 @@ void Horse::MoveHorsePos(Map& map, Pos pos,int loopTime)
 		
 	}
 
+	//두번째라인
 	else if ((pos.x == MIN_POS && (pos.y <= MAX_POS || pos.y >= MIN_POS)) && nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
@@ -94,6 +99,7 @@ void Horse::MoveHorsePos(Map& map, Pos pos,int loopTime)
 		}
 	}
 
+	//세번째라인
 	else if (pos.y == MIN_POS && (pos.x <= MAX_POS || pos.x >= MIN_POS)&& nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
@@ -107,6 +113,7 @@ void Horse::MoveHorsePos(Map& map, Pos pos,int loopTime)
 		GetSamePosHorse(map);
 	}
 
+	//네번째라인
 	else if (pos.x == MAX_POS && (pos.y <= MAX_POS || pos.y >= MIN_POS)&& nomalRoad)
 	{
 		for (int i = 0; i < loopTime; i++)
